@@ -1,0 +1,44 @@
+<view class="content" style="{{isActive?'filter: brightness(40%);background-color:white':''}}">
+    <view class="col">
+        <view class="title">就诊卡号</view>
+        <view class="inp"><input type="text" value="{{medicalCard}}"/></view>
+    </view>
+    <view class="col">
+        <view class="title">姓名</view>
+        <view class="inp"><input type="text" value="{{name}}"/></view>
+    </view>
+    <view class="col">
+        <view class="title">性别</view>
+        <view class="inp"><input type="text" value="{{sex}}"/></view>
+    </view>
+    <view class="col">
+        <view class="title">手机号</view>
+        <view class="inp"><input type="text" value="{{tel}}"/></view>
+    </view>
+    <view class="col">
+        <view class="title">检查项目</view>
+        <view class="inp"><input type="text" value="{{project}}"/></view>
+    </view>
+    <view class="col">
+        <view class="title">检查时间</view>
+        <view class="inp"><input type="text" value="{{turnTime}}"/></view>
+    </view>
+    <view class="btn1">
+        <view bindtap="handleClickSuccess" class='btn'>检查成功</view>
+    </view>
+    <view class="btn2">
+        <view bindtap="handleFail" class='btn'>检查失败</view>
+    </view>
+</view>
+
+<view class="wrap {{isActive?'demo2':'demo3'}}">
+    <view class="error" bindtap="handleError">
+        <image src='../../img/errorImg.png' mode='widthFix'/>
+    </view>
+    <view class="title">检查失败原因:</view>
+    <textarea class="container" value='{{textareaInput}}' bindinput='handleInput' focus='{{true}}'></textarea>
+    <view class="demo">
+        <view class="demo_fail" bindtap="handleFailText">取消</view>
+        <view class="demo_success" bindtap="handleSuccessCancel">确认</view>
+    </view>
+</view>

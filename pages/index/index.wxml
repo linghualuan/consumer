@@ -1,0 +1,84 @@
+<view class="content" style="{{agree ? 'filter: brightness(40%);background-color:white' : ''}}">
+    <view class="content_swiper">
+        <swiper autoplay circular indicator-dots>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper01.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper02.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper03.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper04.png" mode="widthFix"/>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="title">
+        公告：扫码签到并且注射后，静等待叫号。
+    </view>
+    <view class="content_item">
+        <view class="item" bindtap="getScanCode">
+            <view class='scanCode'>
+                <image src="/img/patient/scan.png" mode="widthFix"/>
+                <view class="item_title">扫码签到</view>
+            </view>
+        </view>
+        <view class="item" bindtap='handleIsAuthorization'>
+            <view class='scanCode'>
+                <image src="/img/patient/report.png" mode="widthFix"/>
+                <view class="item_title">预约项目</view>
+            </view>
+        </view>
+        <view class="item">
+            <navigator url="../number_mine/number_mine">
+                <image src="/img/patient/takeNumber.png" mode="widthFix"/>
+                <view class="item_title">我的叫号</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../userInfo_index/userInfo_index">
+                <image src="/img/patient/personalDetail.png" mode="widthFix"/>
+                <view class="item_title">个人信息</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../report/report">
+                <image src="/img/patient/report.png" mode="widthFix"/>
+                <view class="item_title">报告单</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../order_mine/order_mine">
+                <image src="/img/patient/myOrder.png" mode="widthFix"/>
+                <view class="item_title">我的预约</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../my_inspect/my_inspect">
+                <image src="/img/patient/inspentQuery.png" mode="widthFix"/>
+                <view class="item_title">我的检查</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class='background' wx:if="{{agree}}">
+    <view class='inform'>
+        <view class='img'>
+            <image src='/img/jurisdiction.png'></image>
+        </view>
+        <view class='wrap'>
+            <p>用户说明</p>
+            <p>1.个人信息录入后，便可进入该界面，点击预约检查，预约需要检查的项目</p>
+            <p>2.到医院后点击扫码进行签到、等待注射</p>
+            <p>3.注射后等待检查，可在“我的叫号”中查看排队号和预计检查时间</p>
+            <p>4.可在“个人信息”中修改自己的绑定微信</p>
+            <p>5.使用小程序需要获取您的微信权限</p>
+        </view>
+        <view class='btn'>
+            <navigator class='btn_item' open-type="exit" target='miniProgram'>不同意</navigator>
+            <view class='btn_item' bindtap='handleAgree'>同意</view>
+        </view>
+    </view>
+</view>

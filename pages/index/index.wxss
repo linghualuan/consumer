@@ -1,0 +1,137 @@
+page {
+  background-color: #FAF2F9;
+  position: relative;
+}
+page .content {
+  width: 100vw;
+  height: 100vh;
+}
+page .content .content_swiper swiper {
+  height: calc(100vw * 380 / 1100);
+}
+page .content .content_swiper swiper image {
+  width: 100%;
+}
+page .content .title {
+  width: 90%;
+  height: 50rpx;
+  margin: 30rpx auto;
+  font-size: 34rpx;
+  line-height: 50rpx;
+  border: 4rpx solid #e9b809;
+  border-radius: 25rpx;
+  padding-left: 20rpx;
+}
+page .content .content_item {
+  background-color: white;
+  width: 92%;
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: 4%;
+  margin-left: 4%;
+  align-items: center;
+}
+page .content .content_item .item {
+  padding-top: 20rpx;
+  width: 25%;
+  font-size: 35rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+page .content .content_item .item navigator {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+page .content .content_item .item navigator image {
+  width: 60%;
+}
+page .content .content_item .item navigator .item_title {
+  text-align: center;
+}
+page .content .content_item .item .scanCode {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+page .content .content_item .item .scanCode image {
+  width: 60%;
+}
+page .content .content_item .item .scanCode .item_title {
+  text-align: center;
+}
+page .content .content_mag {
+  width: 92%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+page .content .content_mag p {
+  display: block;
+  margin: 20rpx;
+  font-size: 35rpx;
+}
+page .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+page .background .inform {
+  width: 600rpx;
+  background-color: white;
+  position: relative;
+  margin: 100rpx auto;
+  z-index: 10;
+  padding: 20rpx;
+  border-radius: 30rpx;
+}
+page .background .inform .img {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 20rpx auto;
+}
+page .background .inform .img image {
+  width: 100%;
+  height: 100%;
+}
+page .background .inform .wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx 0;
+}
+page .background .inform .wrap p {
+  margin: 10rpx 0;
+}
+page .background .inform .wrap p:nth-child(1) {
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: 600;
+}
+page .background .inform .btn {
+  width: 100%;
+  height: 80rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  border-bottom-right-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+  padding: 40rpx 0;
+}
+page .background .inform .btn .btn_item {
+  width: 250rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border: 2rpx solid #ccc;
+}
+page .background .inform .btn .btn_item:nth-child(2) {
+  background-color: #6dbbbc;
+  color: white;
+}

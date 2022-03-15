@@ -1,0 +1,50 @@
+<view class="wrap">
+    <view class="title">
+        选择预约日期(
+        <text>*绿色背景为可预约日期</text>)
+    </view>
+    <view class="date">
+        <view class="date_title">
+            <view class="left_arrow" bindtap="handleMouthSub">
+                <image src="../../img/retreat.png" mode="widthFix"/>
+            </view>
+            <view class="date_ym">{{year}}-{{month}}</view>
+            <view class="right_arrow" bindtap="handleMouthSum">
+                <image src="../../img/enterInto.png" mode="widthFix"/>
+            </view>
+        </view>
+        <view class="week">
+            <view class="week_item">一</view>
+            <view class="week_item">二</view>
+            <view class="week_item">三</view>
+            <view class="week_item">四</view>
+            <view class="week_item">五</view>
+            <view class="week_item">六</view>
+            <view class="week_item">日</view>
+        </view>
+        <view class="date_day">
+            <view class="day" wx:for="{{n}}" wx:key='*this'>
+                <view class="day_item">{{item}}</view>
+            </view>
+            <view
+            class="day"
+            wx:for="{{day}}"
+            wx:key="*this"
+            >
+                <view class="day_item {{dayTF[index]?'abc':''}}" data-index="{{index}}" bindtap="handleSelectDate" style="{{backgroundColor[index]&&dayTF[index] ? 'background-color:#ffe32e;color:white;':''}}">
+                    <view class='item_num'>{{item}}</view>
+                    <view class='item_allNumber'>{{dayTF[index] ? allNumber[index] : ''}}人</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="select">
+        <view class="select_title">选择预约时间</view>
+        <view class="select_time">
+            <SelectDate select="{{types}}" bindselectChange="handleSelectChange"></SelectDate>
+        </view>
+    </view>
+    <view class="submit" bindtap="handleSubmit">
+        <text >我要预约</text>
+    </view>
+</view>

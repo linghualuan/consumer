@@ -1,0 +1,20 @@
+<view class="content">
+    <view class='img'>
+        <image src='../../img/Super-Admin/headerImg.png' />
+    </view>
+    <view class="col">
+        <view class="inp">
+            <image src="../../img/userManagement.png"></image>
+            <input type="text" name="medicalCard" bindinput="handleAccount" placeholder="输入账号"/>
+        </view>
+    </view>
+    <view class="col">
+        <view class="inp">
+            <image src='../../img/password.png'></image>
+            <input type="password" name="name" bindinput="handlePwd" placeholder="输入密码"/>
+        </view>
+    </view>
+    <view class="btn">
+        <button bindtap="handleSubmit">登录</button>
+    </view>
+</view>

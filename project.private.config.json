@@ -1,0 +1,180 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "采集技师",
+                    "pathName": "pages/technician_check/technician_check",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/nurse_injection/nurse_injection",
+                    "pathName": "pages/nurse_injection/nurse_injection",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "detail_injection",
+                    "pathName": "pages/detail_injection/detail_injection",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "nurse_order",
+                    "pathName": "pages/nurse_order/nurse_order",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "nurse_apply",
+                    "pathName": "pages/nurse_apply/nurse_apply",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "微信用户授权",
+                    "pathName": "pages/user_authorization/user_authorization",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "预约护士主页",
+                    "pathName": "pages/nurse_order/nurse_order",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "注射护士主页",
+                    "pathName": "pages/nurse_injection/nurse_injection",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "选择管理员或患者身份",
+                    "pathName": "pages/users/users",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "技术员主页",
+                    "pathName": "pages/technician/technician",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "技术员成功检查页面",
+                    "pathName": "pages/technician_check/technician_check",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/orderNurse_passed/orderNurse_passed",
+                    "pathName": "pages/orderNurse_passed/orderNurse_passed",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "注射患者信息页面",
+                    "pathName": "pages/detail_injection/detail_injection",
+                    "query": "medicalCard=10000&project=%E7%94%B2%E7%8A%B6%E8%85%BA%E6%B3%A8%E5%B0%84",
+                    "scene": null
+                },
+                {
+                    "name": "pages/technician_uncheck/technician_uncheck",
+                    "pathName": "pages/technician_uncheck/technician_uncheck",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "管理员登录页面",
+                    "pathName": "pages/super_user/super_user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/search/search",
+                    "pathName": "pages/search/search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "管理登录界面",
+                    "pathName": "pages/super_user/super_user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "选择管理员或患者",
+                    "pathName": "pages/users/users",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/handle_project/handle_project",
+                    "pathName": "pages/handle_project/handle_project",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "数据导出",
+                    "pathName": "pages/data_information/data_information",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "超级管理员",
+                    "pathName": "pages/super_index/super_index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/handle_project/handle_project",
+                    "pathName": "pages/handle_project/handle_project",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "超级管理_用户信息",
+                    "pathName": "pages/user_info/user_info",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "我的预约",
+                    "pathName": "pages/order_mine/order_mine",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "二维码",
+                    "pathName": "pages/QRCodeImage/QRCodeImage",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/date/date",
+                    "pathName": "pages/date/date",
+                    "query": "orderProject=%E7%94%B2%E7%8A%B6%E8%85%BA%E6%B3%A8%E5%B0%84",
+                    "scene": null
+                },
+                {
+                    "name": "添加项目",
+                    "pathName": "pages/addProject/addProject",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

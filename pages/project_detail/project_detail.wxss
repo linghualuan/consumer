@@ -1,0 +1,156 @@
+page,
+view,
+image,
+text,
+navigator {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page {
+  background-color: #6DBBB4;
+  padding: 30rpx;
+}
+page .content {
+  position: relative;
+  padding: 30rpx;
+}
+page .content .title {
+  display: flex;
+  height: 60rpx;
+}
+page .content .title .title_img {
+  flex: 1;
+}
+page .content .title .title_img image {
+  width: 100%;
+  height: 100%;
+}
+page .content .title .title_name {
+  padding-left: 30rpx;
+  flex: 13;
+  font-size: 35rpx;
+  color: white;
+}
+page .content .con_top {
+  background-color: white;
+  border-bottom: #6dbbbc 5rpx solid;
+  font-size: 35rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  padding-bottom: 90rpx;
+}
+page .content .con_top .top_project {
+  flex: 1;
+  text-align: center;
+  margin: 20rpx auto;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+page .content .con_top .top_date {
+  flex: 1;
+  position: relative;
+  display: flex;
+  background-color: #6DBBB4;
+  border-radius: 30rpx;
+  width: 90%;
+  margin: 0 auto;
+}
+page .content .con_top .top_date .top_title {
+  width: 40%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+  padding-right: 80rpx;
+  color: white;
+}
+page .content .con_top .top_date .top_select {
+  position: absolute;
+  right: 20rpx;
+  z-index: 3;
+}
+page .content .con_top swiper {
+  width: 100%;
+  height: 400rpx;
+}
+page .content .con_top swiper swiper-item {
+  width: 100%;
+  padding-bottom: 30rpx;
+}
+page .content .con_top swiper swiper-item .item {
+  padding: 40rpx 0;
+}
+page .content .con_top swiper swiper-item .item .item_time {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #F26D07;
+  margin: 20rpx 0;
+}
+page .content .con_top swiper swiper-item .item .item_time .time_num {
+  flex: 2;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+page .content .con_top swiper swiper-item .item .item_queue {
+  color: #F26D07;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 30rpx 0;
+}
+page .content .con_top swiper swiper-item .item .item_queue .queue_title {
+  flex: 1;
+  padding-right: 20rpx;
+  text-align: right;
+}
+page .content .con_top swiper swiper-item .item .item_queue .queue_inp {
+  font-size: 40rpx;
+  flex: 1;
+  height: 50rpx;
+  padding-right: 40rpx;
+}
+page .content .con_top swiper swiper-item .item .item_queue .queue_inp input {
+  height: 100%;
+  font-weight: 600;
+  border-radius: 25rpx;
+  padding: 6rpx 20rpx;
+  font-size: 40rpx;
+  border: 2rpx solid #ccc;
+}
+page .content .con_top swiper swiper-item .item .item_number {
+  color: #F26D07;
+  display: flex;
+}
+page .content .con_top swiper swiper-item .item .item_number .number_title {
+  flex: 1;
+  text-align: right;
+}
+page .content .con_top swiper swiper-item .item .item_number .number_num {
+  flex: 1;
+  font-size: 40rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+}
+page .content .con_top .submit {
+  width: 300rpx;
+  height: 60rpx;
+  color: white;
+  background-color: #6DBBBc;
+  margin: 10rpx auto;
+  border-radius: 30rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  margin-left: -150rpx;
+  margin-bottom: 40rpx;
+  line-height: 60rpx;
+}

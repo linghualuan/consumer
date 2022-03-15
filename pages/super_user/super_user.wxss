@@ -1,0 +1,50 @@
+page {
+  background-color: #FAF2F9;
+}
+page .content {
+  display: flex;
+  flex-direction: column;
+}
+page .content .img {
+  width: 40vw;
+  height: 40vw;
+  margin: 0 auto;
+}
+page .content .img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+page .content .col {
+  margin: 30rpx 40rpx;
+  display: flex;
+}
+page .content .col .inp {
+  margin: 0 auto;
+  position: relative;
+  height: 70rpx;
+}
+page .content .col .inp image {
+  position: absolute;
+  width: 70rpx;
+  height: 70rpx;
+  top: 4rpx;
+  left: 4rpx;
+}
+page .content .col .inp input {
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 5rpx 0;
+  padding-left: 90rpx;
+  height: 100%;
+  font-size: 40rpx;
+  line-height: 70rpx;
+}
+page .content .btn {
+  margin-top: 150rpx;
+}
+page .content .btn button {
+  color: white;
+  border-radius: 25rpx;
+  background-color: #6DBBB4;
+}

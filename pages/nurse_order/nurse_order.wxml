@@ -1,0 +1,91 @@
+<view class="top_Title">
+    <view class="img">
+        <image src="../../img/QR-code.png" mode="widthFix" bindtap="handleQRCode"/>
+    </view>
+    <view class="title">预约护士</view>
+</view>
+<view class="tabs">
+    <Tabs tabs="{{tabs}}" binditemTabChange="handleItemTabChange">
+        <block wx:if="{{tabs[0].isActive}}">
+            <view wx:if="{{userInfo.length}}">
+                <view class="item" wx:for="{{userInfo}}" wx:key="*this" data-index='{{index}}'>
+                <navigator url="../nurse_apply/nurse_apply?medicalCard={{item.medicalCard}}&id={{item.id}}" open-type="navigate">
+                    <view class="top">
+                    <view class="top_img">
+                        {{index + 1}}
+                    </view>
+                    <view class="top_title">
+                        <view class="title_address">中南大学湘雅二医院</view>
+                        <view class="title_project">{{item.orderProject}}</view>
+                    </view>
+                    <view class="top_icon">
+                        <image mode="widthFix" src="../../img/enterInto.png"/>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <view class="btm_number">就诊卡号:{{item.medicalCard}}</view>
+                    <view class="btm_name">姓名:{{item.name}}</view>
+                </view>
+                </navigator>
+            </view>
+            </view>
+            <view wx:if="{{!userInfo.length}}" class='noData'>
+                <image src='../../img/NoData.png' mode="widthFix"/>
+            </view>
+        </block>
+        <block wx:if="{{tabs[1].isActive}}">
+            <view wx:if="{{userInfoPassed.length}}">
+                <view class="item" wx:for="{{userInfoPassed}}" wx:key="*this" data-index='{{index}}'>
+                <navigator url="../nurse_unapply/nurse_unapply?medicalCard={{item.medicalCard}}&id={{item.id}}" open-type="navigate">
+                    <view class="top">
+                    <view class="top_img">
+                        {{index + 1}}
+                    </view>
+                    <view class="top_title">
+                        <view class="title_address">中南大学湘雅二医院</view>
+                        <view class="title_project">{{item.orderProject}}</view>
+                    </view>
+                    <view class="top_icon">
+                        <image mode="widthFix" src="../../img/enterInto.png"/>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <view class="btm_number">就诊卡号:{{item.medicalCard}}</view>
+                    <view class="btm_name">姓名:{{item.name}}</view>
+                </view>
+                </navigator>
+            </view>
+            </view>
+            <view wx:if="{{!userInfoPassed.length}}" class='noData'>
+                <image src='../../img/NoData.png' mode="widthFix"/>
+            </view>
+        </block>
+        <block wx:if="{{tabs[2].isActive}}">
+            <view wx:if="{{userInfoUnpassed.length}}">
+                <view class="item" wx:for="{{userInfoUnpassed}}" wx:key="*this" data-index='{{index}}'>
+                <navigator url="../nurse_unapply/nurse_unapply?medicalCard={{item.medicalCard}}&id={{item.id}}" open-type="navigate">
+                    <view class="top">
+                    <view class="top_img">
+                        {{index + 1}}
+                    </view>
+                    <view class="top_title">
+                        <view class="title_address">中南大学湘雅二医院</view>
+                        <view class="title_project">{{item.orderProject}}</view>
+                    </view>
+                    <view class="top_icon">
+                        <image mode="widthFix" src="../../img/enterInto.png"/>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <view class="btm_number">就诊卡号:{{item.medicalCard}}</view>
+                    <view class="btm_name">姓名:{{item.name}}</view>
+                </view>
+                </navigator>
+            </view>
+            </view>
+            <view wx:if="{{!userInfoUnpassed.length}}" class='noData'>
+                <image src='../../img/NoData.png' mode="widthFix"/>
+            </view>
+        </block>
+    </Tabs>
+</view>

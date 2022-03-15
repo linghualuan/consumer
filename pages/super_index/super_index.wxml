@@ -1,0 +1,72 @@
+<view class="content">
+    <view class="content_swiper">
+        <swiper autoplay circular indicator-dots>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper01.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper02.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper03.jpg" mode="widthFix"/>
+            </swiper-item>
+            <swiper-item >
+              <image src="../../img/slideshow/swiper04.png" mode="widthFix"/>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="title">
+        公告：公告内容暂定。
+    </view>
+    <view class="content_item">
+        <view class="item">
+            <navigator open-type="navigate" url="../addProject/addProject">
+                <image src="../../img/Super-Admin/projectManagement.png" mode="widthFix"/>
+                <view class="item_title">添加项目</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator url="../set_order/set_order">
+                <image src="../../img/Super-Admin/found.png" mode="widthFix"/>
+                <view class="item_title">创建预约</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../my_project/my_project">
+                <image src="../../img/Super-Admin/applicationManagement.png" mode="widthFix"/>
+                <view class="item_title">我的管理</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../addWorker/addWorker">
+                <image src="../../img/Super-Admin/addPerson.png" mode="widthFix"/>
+                <view class="item_title">创建管理</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator url="../user_info/user_info">
+                <image src="../../img/Super-Admin/information.png" mode="widthFix"/>
+                <view class="item_title">用户信息</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../blacklist/blacklist">
+                <image src="../../img/Super-Admin/informationPerson.png" mode="widthFix"/>
+                <view class="item_title">解除拉黑</view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../data_information/data_information">
+                <image src="../../img/Super-Admin/dataExport.png" mode="widthFix"/>
+                <view class="item_title">数据导出</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="content_mag">
+        <p>用户说明：</p>
+        <p>1.用户可点击“创建预约”图标进入预约项目的创建，并设置预约项目、日期、时间、以及可预约数量。</p>
+        <p>2.点击“我的管理”管理已创建的预约以及已完成的预约项目。</p>
+        <p>3.“护士信息”可对医院工作人员的信息进行管理。</p>
+        <p>4.“解除拉黑”可对已拉黑的患者名单进行管理。</p>
+    </view>
+</view>

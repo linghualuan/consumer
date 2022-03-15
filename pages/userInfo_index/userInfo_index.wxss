@@ -1,0 +1,57 @@
+page,
+view,
+image,
+text,
+swiper,
+swiper-item,
+navigator,
+button {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page {
+  background-color: #FAF2F9;
+  position: relative;
+}
+page .content {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+page .content .col {
+  margin: 30rpx 40rpx;
+}
+page .content .col .title {
+  flex: 2;
+  text-align: right;
+  padding-right: 30rpx;
+}
+page .content .col .inp {
+  flex: 5;
+  height: 80rpx;
+  width: 70vw;
+  margin: 0 auto;
+}
+page .content .col .inp input {
+  width: 100%;
+  background-color: white;
+  border-radius: 10rpx;
+  padding-left: 30rpx;
+  height: 100%;
+  border-radius: 40rpx;
+  filter: opacity(70%);
+}
+page .content .btn {
+  margin-top: 150rpx;
+  height: 80rpx;
+}
+page .content .btn button {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25rpx;
+  background-color: #6bdccc;
+  color: white;
+  width: 50vw;
+}

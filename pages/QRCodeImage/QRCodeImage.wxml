@@ -1,0 +1,5 @@
+<view class="wrap">
+    <view class="title">请扫描二维码</view>
+    <!-- <image src="http://localhost:8881/queue/queueCode" id='img'></image> -->
+    <image src="{{url}}" id='img'></image>
+</view>

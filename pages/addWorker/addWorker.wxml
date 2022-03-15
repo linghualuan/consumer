@@ -1,0 +1,43 @@
+<view class='header'>
+    <view class='header_title'>选择管理身份</view>
+    <view class='header_select'>
+        <Select select="{{types}}" bindselectChange="handleSelectChange"></Select>
+    </view>
+</view>
+
+<view class='number'>
+    <view class='number_title'>工号</view>
+    <view class='number_int'>
+        <input type="text" bindblur="handleJobNum" value='{{jobNum}}'/>
+    </view>
+</view>
+
+<view class='number'>
+    <view class='number_title'>姓名</view>
+    <view class='number_int'>
+        <input type="text" bindblur="handleName" value='{{name}}'/>
+    </view>
+</view>
+
+<view class='number'>
+    <view class='number_title'>性别</view>
+    <view class='number_int'>
+        <input type="text" bindblur="handleSex" value='{{sex}}'/>
+    </view>
+</view>
+
+<view class='number'>
+    <view class='number_title'>手机号</view>
+    <view class='number_int'>
+        <input type="text" bindblur="handleTel" value='{{tel}}'/>
+    </view>
+</view>
+
+<view class='number'>
+    <view class='number_title'>登录密码</view>
+    <view class='number_int'>
+        <input type="text" bindblur="handlePwd" value='{{password}}'/>
+    </view>
+</view>
+
+<view class='submit' bindtap='handleSubmit'>提交</view>

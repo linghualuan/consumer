@@ -1,0 +1,14 @@
+<view class="wrap">
+    <view class="item" bindtap="handleSuper">
+        <view class='img'>
+            <image src='/img/staff.png' mode='widthFix'/>
+        </view>
+        <view class='title'>我是管理员</view>
+    </view>
+    <view class="item" bindtap="handleFive">
+        <view class='img'>
+            <image src='/img/patient.png' mode='widthFix'/>
+        </view>
+        <view class='title'>我是患者</view>
+    </view>
+</view>

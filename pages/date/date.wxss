@@ -1,0 +1,119 @@
+page,
+view,
+image,
+text,
+swiper,
+swiper-item,
+navigator,
+button {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page {
+  background-color: #FAF2F9;
+  position: relative;
+}
+page .wrap {
+  padding: 10rpx 5%;
+}
+page .wrap .title {
+  padding: 10rpx 0;
+}
+page .wrap .title text {
+  color: #6dbbbc;
+}
+page .wrap .date {
+  background-color: white;
+}
+page .wrap .date .date_title {
+  padding: 10rpx;
+  display: flex;
+}
+page .wrap .date .date_title .left_arrow {
+  flex: 2;
+}
+page .wrap .date .date_title .left_arrow image {
+  width: 15%;
+  margin-left: 70%;
+}
+page .wrap .date .date_title .date_ym {
+  flex: 1;
+  font-size: 30rpx;
+}
+page .wrap .date .date_title .right_arrow {
+  flex: 2;
+}
+page .wrap .date .date_title .right_arrow image {
+  width: 15%;
+  margin-right: 70%;
+}
+page .wrap .date .week {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+page .wrap .date .week .week_item {
+  flex: 1;
+  text-align: center;
+}
+page .wrap .date .date_day {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+page .wrap .date .date_day .day {
+  width: 12.85vw;
+  height: 15vw;
+  padding: 0.5vw;
+}
+page .wrap .date .date_day .day .day_item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 20rpx;
+}
+page .wrap .date .date_day .day .day_item .item_num {
+  color: black;
+}
+page .wrap .date .date_day .day .day_item .item_allNumber {
+  color: white;
+  font-size: 24rpx;
+}
+page .wrap .date .date_day .day .abc {
+  background-color: #6dbbbc;
+}
+page .wrap .select {
+  display: flex;
+  margin: 40rpx 20rpx;
+  height: 100rpx;
+  align-items: center;
+  justify-content: center;
+}
+page .wrap .select .select_title {
+  flex: 2;
+  font-size: 34rpx;
+  text-align: right;
+  padding-right: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+page .wrap .select .select_time {
+  flex: 3;
+  height: 50rpx;
+}
+page .wrap .submit {
+  width: 40vw;
+  height: 10vw;
+  background-color: #6dbbbc;
+  margin: 200rpx auto;
+  text-align: center;
+  line-height: 10vw;
+  border-radius: 5vw;
+}
+page .wrap .submit text {
+  color: white;
+}

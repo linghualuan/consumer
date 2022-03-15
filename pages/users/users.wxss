@@ -1,0 +1,26 @@
+.wrap {
+  display: flex;
+  margin-top: 20vw;
+  justify-content: space-around;
+}
+.wrap .item {
+  width: 40vw;
+  height: 50vw;
+  background-color: #ffe208;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 20rpx 20rpx 20rpx #ccc;
+}
+.wrap .item .img {
+  flex: 4;
+}
+.wrap .item .img image {
+  width: 100%;
+  height: 100%;
+}
+.wrap .item .title {
+  flex: 1;
+  text-align: center;
+  font-size: 40rpx;
+}

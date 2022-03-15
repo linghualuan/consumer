@@ -1,0 +1,12 @@
+page,view,image,text,swiper,swiper-item,navigator,button{
+    padding:0;
+    margin:0;
+}
+image{
+    height:auto;
+    box-sizing: border-box;
+}
+page{
+    background-color: #faf2f9;
+    box-sizing: border-box;
+}
