@@ -68,10 +68,6 @@ Page({
 
     onLoad(option){
 
-        // this.handleDemo()
-
-        // this.handleTime();
-
         console.log(option);
 
         this.QueryParams.id = option.id;

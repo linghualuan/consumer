@@ -11,10 +11,9 @@ Component({
         isSelect:false,
         info:'请选择',  //选框显示的信息
         selectDate:'',   //用户选择的时间段
-        lengthSelect:0
+        lengthSelect:''
     },
     methods: {
-
         //点击获取时间段长度
         handleLengthSelect(){
             let lengthSelect = this.properties.select;

@@ -64,16 +64,18 @@ Page({
     //检查成功
     handleClickSuccess() {
         let medicalCard = this.data.medicalCard;
+        let id = this.QueryParams.id;
         let project = this.data.project;
         let errorMsg = '成功';
         let date = this.data.date;
-        let operatorId = wx.getStorageSync('relId')
+        let operatorId = wx.getStorageSync('relId');
+        let relId = this.QueryParams.relId;
         wx.showModal({
             title: '提示',
             content: '是否检查成功',
             success (res) {
               if (res.confirm) {
-                request({url:'/technician/updateScanState',data:{date,errorMsg,operatorId,medicalCard,project,scanState:1},method:'get'})
+                request({url:'/technician/updateScanState',data:{relId,id,date,errorMsg,operatorId,medicalCard,project,scanState:1},method:'get'})
                 .then(
                     res => {
                         console.log(res);
@@ -109,11 +111,6 @@ Page({
         let errorMsg = this.data.textareaInput;
         let date = this.data.date;
         let operatorId = wx.getStorageSync('relId');
-        console.log('medicalCard' + medicalCard);
-        console.log('project' + project);
-        console.log('errorMsg' + errorMsg);
-        console.log('date' + date);
-        console.log('operatorId' + operatorId);
         if(!errorMsg){
           wx.showToast({
             title: '请输入失败原因',

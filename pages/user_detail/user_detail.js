@@ -61,26 +61,46 @@ Page({
     let sex = this.data.sex;
     let tel = this.data.tel;
     let relId = this.data.relId;
-    request({url:'/superRoot/project/updateMessageByRelId',data:{medicalCard,name,sex,tel,relId}})
-    .then(
-      res => {
-        console.log(res);
-        if(res.data.code === 1){
-          wx.showToast({
-            title: '提交成功',
-          })
-          setTimeout(() => {
-            wx.navigateBack({
-              url: '../user_info/user_info',
+    let Name = /^[\u2E80-\u9FFF]+$/;
+    let Sex = /^[男|女]{1}$/;
+    let Tel = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/
+    if(!Name.test(name)){
+      wx.showToast({
+        title: '姓名格式不合法',
+        icon:'none'
+      })
+    }else if(!Sex.test(sex)){
+      wx.showToast({
+        title: '性别格式不合法',
+        icon:'none'
+      })
+    }else if(!Tel.test(tel)){
+      wx.showToast({
+        title: '电话格式不合法',
+        icon:'none'
+      })
+    }else{
+      request({url:'/superRoot/project/updateMessageByRelId',data:{medicalCard,name,sex,tel,relId}})
+      .then(
+        res => {
+          console.log(res);
+          if(res.data.code === 1){
+            wx.showToast({
+              title: '提交成功',
             })
-          },1000)
-        }else{
-          wx.showToast({
-            title:'提交失败'
-          })
+            setTimeout(() => {
+              wx.navigateBack({
+                url: '../user_info/user_info',
+              })
+            },1000)
+          }else{
+            wx.showToast({
+              title:'提交失败'
+            })
+          }
         }
-      }
-    )
+      )
+    }
   },
 
   //注销功能

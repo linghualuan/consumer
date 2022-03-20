@@ -2,6 +2,7 @@
     "pages": [
         "pages/users/users",
         "pages/user_authorization/user_authorization",
+        "pages/user_instructions/user_instructions",
         "pages/index/index",
         "pages/search/search",
         "pages/order_project/order_project",
@@ -25,7 +26,6 @@
         "pages/super_user/super_user",
         "pages/detail_mine/detail_mine",
         "pages/detail_uninjection/detail_uninjection",
-        "pages/inspect_detail/inspect_detail",
         "pages/myOrder_detail/myOrder_detail",
         "pages/super_index/super_index",
         "pages/addProject/addProject",
@@ -42,7 +42,7 @@
         "pages/user_nurse_detail/user_nurse_detail",
         "pages/queue_detail_injection/queue_detail_injection",
         "pages/my_inspect/my_inspect",
-        "pages/my_inspect_detail/my_inspect_detail"
+        "pages/inspect_detail/inspect_detail"
     ],
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",

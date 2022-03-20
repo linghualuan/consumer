@@ -30,7 +30,6 @@
     </view>
     <view class="con_bottom">
         <view class="btm">当前时间：{{nowTime}}</view>
-        <view class="btm" wx:if="{{time}}">检查时间：{{time}}</view>
-        <view class="btm">登记信息: 小程序</view>
+        <view class="btm">检查时间：{{time ? time : '还未检查'}}</view>
     </view>
 </view>

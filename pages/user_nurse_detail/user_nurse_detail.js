@@ -55,6 +55,7 @@ Page({
         )
     },
 
+    //提交修改后的信息
     handleSubmit(){
         let name = this.data.name;
         let sex = this.data.sex;

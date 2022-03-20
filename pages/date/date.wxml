@@ -31,7 +31,7 @@
             wx:for="{{day}}"
             wx:key="*this"
             >
-                <view class="day_item {{dayTF[index]?'abc':''}}" data-index="{{index}}" bindtap="handleSelectDate" style="{{backgroundColor[index]&&dayTF[index] ? 'background-color:#ffe32e;color:white;':''}}">
+                <view class="day_item {{dayTF[index] ? (notSelect[index] ? 'def' : 'abc') : ''}}" data-index="{{index}}" style="{{backgroundColor[index]&&dayTF[index] ? 'background-color:#ffe32e;color:white;':''}}" bindtap="handleSelectDate">
                     <view class='item_num'>{{item}}</view>
                     <view class='item_allNumber'>{{dayTF[index] ? allNumber[index] : ''}}人</view>
                 </view>

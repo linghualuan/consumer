@@ -5,9 +5,6 @@
               <image src="../../img/slideshow/swiper01.jpg" mode="widthFix"/>
             </swiper-item>
             <swiper-item >
-              <image src="../../img/slideshow/swiper02.jpg" mode="widthFix"/>
-            </swiper-item>
-            <swiper-item >
               <image src="../../img/slideshow/swiper03.jpg" mode="widthFix"/>
             </swiper-item>
             <swiper-item >
@@ -27,7 +24,7 @@
         </view>
         <view class="item" bindtap='handleIsAuthorization'>
             <view class='scanCode'>
-                <image src="/img/patient/report.png" mode="widthFix"/>
+                <image src="/img/patient/orderProject.png" mode="widthFix"/>
                 <view class="item_title">预约项目</view>
             </view>
         </view>
@@ -60,6 +57,29 @@
                 <image src="/img/patient/inspentQuery.png" mode="widthFix"/>
                 <view class="item_title">我的检查</view>
             </navigator>
+        </view>
+        <view class="item">
+            <navigator open-type="navigate" url="../user_instructions/user_instructions">
+                <image src="/img/patient/instructions.png" mode="widthFix"/>
+                <view class="item_title">使用说明</view>
+            </navigator>
+        </view>
+    </view>
+    <view class='footer'>
+        <view class='instruction_title'>
+            1.用户点击预约项目，选择要预约的项目，点击绿色背景，点击下拉框，选择要预约的时间段，点击我要预约。
+        </view>
+        <view class='instruction_title'>
+            2.用户可在我的预约中查看预约信息，并且可以取消预约。
+        </view>
+        <view class='instruction_title'>
+            3.用户可在我的叫号查看注射状态和检查叫号状态以及详细信息。
+        </view>
+        <view class='instruction_title'>
+            4.用户可在我的检查中查看所有已经检查过的项目。
+        </view>
+        <view class='instruction_title'>
+            5.用户可在个人信息中修改信息。
         </view>
     </view>
 </view>

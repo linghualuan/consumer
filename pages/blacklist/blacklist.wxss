@@ -22,6 +22,7 @@ page .item .top {
 page .item .top .top_img {
   flex: 1;
   border-radius: 50%;
+  margin-right: 40rpx;
 }
 page .item .top .top_img image {
   width: 100%;

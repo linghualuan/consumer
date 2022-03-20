@@ -67,7 +67,7 @@ Page({
                                 icon:'none'
                             })
                             setTimeout(() => {
-                                wx.reLaunch({
+                                wx.navigateBack({
                                   url: '../index/index',
                                 })
                             },1000)

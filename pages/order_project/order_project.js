@@ -30,6 +30,7 @@ Page({
         requestLoading({url:'/serve/project/projectList',data:{pageNumber:this.QueryParams.current,pageSize:this.QueryParams.size},header:{'Authorization':`Bearer ${ this.data.token }`}})
         .then(
             res => {
+                console.log(res);
                 this.pages = res.data.data.pages;
                 this.setData({
                     project:[...this.data.project,...res.data.data.records]
@@ -54,7 +55,6 @@ Page({
     },
 
     onLoad(){
-        console.log('-----');
         this.handleA();
     },
 })

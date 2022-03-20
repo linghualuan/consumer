@@ -24,6 +24,7 @@ button {
 }
 .user_wrap .col .inp {
   flex: 5;
+  margin-left: 30rpx;
 }
 .user_wrap .col .inp input {
   width: 400rpx;
@@ -31,6 +32,7 @@ button {
   background-color: white;
   margin-left: 10rpx;
   text-align: center;
+  border-radius: 10rpx;
 }
 .submit {
   width: 400rpx;

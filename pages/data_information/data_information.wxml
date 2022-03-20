@@ -14,5 +14,5 @@
 <view class="select" bindtap='handleData'>
     确认选择
 </view>
-<van-calendar show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" color="#6dbbb4" />
-<van-calendar show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" color="#6dbbb4" />
+<van-calendar min-date='{{minDate}}' max-date='{{maxDate}}' show="{{ show1 }}" bind:close="onClose1" bind:confirm="onConfirm1" color="#6dbbb4" />
+<van-calendar min-date='{{minDate}}' max-date='{{maxDate}}' show="{{ show2 }}" bind:close="onClose2" bind:confirm="onConfirm2" color="#6dbbb4" />

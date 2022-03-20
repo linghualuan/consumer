@@ -41,8 +41,6 @@ Component({
                 isSelect,info
             })
         },
-
-        
     },
     // pageLifetimes:{
     //     show(){

@@ -8,8 +8,7 @@
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handlePendWait">
       <view class="picker">
-        <!-- <input type="text" value='{{pendWait}}' placeholder="注射等待时间"></input> -->
-        <view class='input' style="{{pendWait ? '' : 'color:#888'}}">{{pendWait ? pendWait : '注射等待时间'}}</view>
+        <view class='input' style="{{pendWait!=='' ? '' : 'color:#888'}}">{{pendWait!=='' ? pendWait : '注射等待时间'}}</view>
       </view>
     </picker>
   </view>
@@ -19,8 +18,7 @@
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handlePendCheck">
       <view class="picker">
-        <!-- <input type="text" value='{{pendCheck}}' placeholder="检查预估时间"></input> -->
-        <view class='input' style="{{pendCheck ? '' : 'color:#888'}}">{{pendCheck ? pendCheck : '检查预估时间'}}</view>
+        <view class='input' style="{{pendCheck!=='' ? '' : 'color:#888'}}">{{pendCheck!=='' ? pendCheck : '检查预估时间'}}</view>
       </view>
     </picker>
   </view>
@@ -30,8 +28,7 @@
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handleOrderNumber">
       <view class="picker">
-        <!-- <input type="text" value='{{orderPeople}}' placeholder="可预约人数"></input> -->
-        <view class='input' style="{{orderPeople ? '' : 'color:#888'}}">{{orderPeople ? orderPeople : '可预约人数'}}</view>
+        <view class='input' style="{{orderPeople!=='' ? '' : 'color:#888'}}">{{orderPeople!=='' ? orderPeople : '可预约人数'}}</view>
       </view>
     </picker>
   </view>

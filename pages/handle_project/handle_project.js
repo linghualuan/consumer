@@ -53,7 +53,7 @@ Page({
   onCloseEndDate(){
     this.setData({ showEndDate: false });
   },
-  
+
   formatDate(date){
     date = new Date(date);
     return `${date.getFullYear()}-${date.getMonth()+1<10?'0':''}${date.getMonth() + 1}-${date.getDate()<10?'0':''}${date.getDate()}`;
@@ -232,61 +232,5 @@ Page({
         )
       }
     }
-    // if(!isDate){
-    //   wx.showToast({
-    //     title: '开始日期必须小于结束日期',
-    //     icon:'none'
-    //   })
-    // }else if(!isTime){
-    //   wx.showToast({
-    //     title: '预约开始时段必须小于预约结束时段',
-    //     icon:'none'
-    //   })
-    // }else{
-    //   wx.showToast({
-    //     title: 'ok',
-    //     icon:'none'
-    //   })
-    // }
-
-
-    // if(!timeList[timeList.length - 1].startTime || !timeList[timeList.length - 1].endTime || !timeList[timeList.length - 1].number === 0 || !startDate || !overDate){
-    //   wx.showToast({
-    //     title:'请输入完整信息',
-    //     icon:'none'
-    //   })
-    // }else{
-    //   let s = new Array(timeList.length);
-    //   for(let i=0 ; i<timeList.length ; i++){
-    //     let item = {orderTime:'',orderNumber:0}
-    //     s[i] = item;
-    //     let orderTime = timeList[i].startTime + '-' + timeList[i].endTime;
-    //     s[i].orderTime = orderTime;
-    //     s[i].orderNumber = timeList[i].number
-    //   }
-    //   request({url:'/superRoot/setting/settingDate',data:{startDate,overDate,times:s,projectName:orderProject},method:'post'})
-    //   .then(
-    //     res => {
-    //       console.log(res);
-    //       if(res.data.code === 1){
-    //         wx.showToast({
-    //           title: '创建成功',
-    //           icon:'none'
-    //         })
-    //         setTimeout(() => {
-    //           wx.reLaunch({
-    //             url: '../set_order/set_order'
-    //           })
-    //         },1000)
-    //       }else{
-    //         let msg = res.data.msg;
-    //         wx.showToast({
-    //           title: msg,
-    //           icon:'none'
-    //         })
-    //       }
-    //     }
-    //   )
-    // }
   },
 })

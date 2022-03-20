@@ -7,6 +7,8 @@ Page({
         show2: false,
         start_date: '',
         end_date: '',
+        minDate:new Date(2022,2,10).getTime(),
+        maxDate:new Date().getTime()
     },
 
     start_time() {
@@ -32,15 +34,16 @@ Page({
 
     formatDate(date) {
         date = new Date(date);
-        // return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         return `${date.getFullYear()}-${date.getMonth()+1<10?'0':''}${date.getMonth() + 1}-${date.getDate()<10?'0':''}${date.getDate()}`;
     },
+
     onConfirm1(event) {
         this.setData({
           show1: false,
           start_date: this.formatDate(event.detail),
         });
     },
+
     onConfirm2(event) {
         this.setData({
           show2: false,

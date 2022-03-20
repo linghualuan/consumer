@@ -37,11 +37,10 @@ page .item navigator .top {
 }
 page .item navigator .top .top_img {
   flex: 1;
-  border-radius: 50%;
+  margin-right: 40rpx;
 }
 page .item navigator .top .top_img image {
   width: 100%;
-  border-radius: 50%;
 }
 page .item navigator .top .top_title {
   flex: 4;

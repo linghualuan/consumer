@@ -3,8 +3,7 @@ Page({
     data: {
         tabs:[
             { id:1, value:"注射叫号", isActive:true },
-            { id:2, value:"检查叫号", isActive:false},
-            { id:3, value:"检查失败", isActive:false}
+            { id:2, value:"检查叫号", isActive:false}
         ],
         userInfoInjection:[],   //注射叫号列表
 
@@ -61,24 +60,6 @@ Page({
                     userInfoInspect[i] = records[i]
                 }
                 this.setData({ userInfoInspect })
-            }
-        )
-    },
-
-    //检查失败
-    handleUserInfoFail(){
-        let relId = wx.getStorageSync('relId');
-        request({url:'/serve/check/failOrFine',data:{relId}})
-        .then(
-            res =>{
-                console.log('检查失败');
-                console.log(res);
-                let records = res.data.data.records;
-                let userInfoFail = [];
-                for(let i =0;i<records.length;i++){
-                    userInfoFail[i] = records[i]
-                }
-                this.setData({ userInfoFail })
             }
         )
     },

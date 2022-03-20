@@ -25,10 +25,7 @@ Page({
                         })
                     }
                 }
-        )
-        }else{
-            console.log('.........');
-        }
+        )}
     },
 
     handleFive(){

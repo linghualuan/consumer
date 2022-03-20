@@ -20,7 +20,8 @@ Page({
         orderDate:'',    //预约的日期
         select:false,   //是否已经预约
         backgroundColor:[],     //点击可预约日期变色
-        allNumber:[]    //绿色背景下的可预约人数
+        allNumber:[],    //绿色背景下的可预约人数
+        notSelect:[]
     },
 
     QueryParams:{
@@ -34,6 +35,7 @@ Page({
         let selectType = this.data.selectType;
         selectType = types[index].slice(0,11);
         this.setData({ selectType })
+        console.log(this.data.selectType);
     },
 
     //月份增加
@@ -51,10 +53,14 @@ Page({
             month ='0' + 1;
             year++
         }
-        this.setData({ month:String(month), year:String(year) })
-        this.handleDateId();
+        this.setData({
+            month:String(month),
+            year:String(year),
+            backgroundColor:[]  //当点击月份减小时把黄色的背景去掉
+        })
         this.handleDate();
-        this.ZhangLei();
+        this.handleDateId();
+        this.judgeWeek();
     },
 
     //月份减少
@@ -70,12 +76,12 @@ Page({
         }
         this.setData({
             month:String(month),
-            year:String(year)
+            year:String(year),
+            backgroundColor:[]  //当点击月份增加时把黄色的背景去掉
         })
-
-        this.handleDateId();
         this.handleDate();
-        this.ZhangLei();
+        this.handleDateId();
+        this.judgeWeek();
     },
 
     //获取当前年月份并给data中的数据赋值
@@ -105,7 +111,8 @@ Page({
     handleDate(){
         let year = this.data.year;
         let month = String(this.data.month);
-        let day = this.data.day;
+        // let day = this.data.day;
+        let day = [];
 
         //判断闰年
         if((year%4 == 0 && year%100 != 0) || year%400 == 0){
@@ -129,7 +136,7 @@ Page({
     },
 
     //根据年份和月份获取每月1号是星期几
-    ZhangLei () {
+    judgeWeek () {
         let year = this.data.year;
         let month = this.data.month;
         let dt = new Date();
@@ -148,31 +155,49 @@ Page({
         let day = this.data.day;
         let month = String(this.data.month);
         let year = String(this.data.year);
-        let dayTF = new Array(day.length);
-        let allNumber = new Array(day.length);
-        let orderProject = this.QueryParams.orderProject
+        let dayTF = new Array(day.length);      //把可选择的日期对应的下标定为true。例如：本月12号可以预约，则把下标为11的项赋值为true
+        let allNumber = new Array(day.length);      //如果可预约日期为true,则把可预约日期的可预约人数赋值给allNumber对应的下标
+        let orderProject = this.QueryParams.orderProject;
+        let notSelect = [];         //此数组里面的内容为布尔值，当日期已经过去或者可预约人数为0时，把值定为true，此时日期的背景为灰色
         request({url:'/serve/order/getOrderDate',data:{orderProject},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
         .then(
             res => {
-                console.log(res);
                 let a = res.data.data;
                 let selectDate = new Array(dayTF.length);
                 a.forEach( v =>{
-                    wx.setStorageSync('date', v.orderDate)
                     let orderYear = v.orderDate.slice(0,4);
                     let orderMonth = v.orderDate.slice(5,7);
                     let orderDay = v.orderDate.slice(8,10);
-                    for(var i = 0;i<=dayTF.length;++i){
-                        if(month === orderMonth&&year === orderYear){
-                            if(parseInt(orderDay) === i){
+                    for(let i=0 ; i<=dayTF.length; i++){
+                        if(month===orderMonth && year===orderYear){
+                            if(parseInt(orderDay)===i){
                                 dayTF[i-1] = true;
-                                allNumber[i-1] = v.numbers
+                                allNumber[i-1] = v.numbers;
                                 selectDate[i-1] = v;
                             }
                         }
                     }
                 })
-                this.setData({ dayTF,selectDate,allNumber })
+                this.setData({ dayTF, selectDate, allNumber })
+
+                //当dayTF的值为true，即为可预约的日期，再判断点击的日期是否小于今天的日期以及可预约的人数是否为0，
+                //若满足此条件，则让notSelect对应的下标为true
+                let nowDay = (new Date()).getDate();
+                let nowYear = (new Date()).getFullYear();
+                let nowMonth = (new Date()).getMonth() + 1;
+                this.data.selectDate.forEach((v,i) => {
+                    if(this.data.dayTF[i]){
+                        if(nowMonth>=month && nowYear>=year){
+                            if(i<nowDay - 1){
+                                notSelect[i] = true
+                            }
+                        }
+                        if(v.numbers == 0){
+                            notSelect[i] = true
+                        }
+                    }
+                })
+                this.setData({notSelect})
             }
         )
     },
@@ -180,36 +205,67 @@ Page({
     //点击可选择的日期获取时间段
     handleSelectDate(e){
         let day = this.data.day;    //每月的天数
-        let dayTF = this.data.dayTF;        //背景为绿色的可预约日期的可预约时间段
-        console.log('----------------');
-        console.log(dayTF);
+        let dayTF = this.data.dayTF;        //背景为绿色的可预约日期
+        let month = String(this.data.month);    //获取当前月份
+        let year = String(this.data.year);  //获取当前年份
+        //----------------
+        //获取当前年份，月份，日
+        let nowDay = (new Date()).getDate();
+        let nowYear = (new Date()).getFullYear();
+        let nowMonth = (new Date()).getMonth() + 1;
+        //----------------
         let selectDate = this.data.selectDate;
         const index = e.currentTarget.dataset.index;
         let backgroundColor = [];
         day.forEach((v,i)=>{
             if(i === index){
-                if(dayTF[i] === true){
-                    backgroundColor[i] = true
-                    let orderId = selectDate[i].orderId;
-                    let orderDate = selectDate[i].orderDate;
-                    this.setData({ orderDate });
-                    let date = this.data.orderDate
-                    wx.request({
-                        url: 'http://124.71.81.190:8881/serve/order/getOrderTime',
-                        data:{ date, orderId },
-                        success:res => {
-                            console.log('==================');
-                            console.log(res);
-                            let a = res.data.data;
-                            let types = a.map(v => v.orderTime + '(' + v.allowNumber + ')')
-                            this.setData({ types })
-                      }
-                    })
+                if(dayTF[i]===true && this.data.notSelect[i] !== true){  //i>=nowDate.getDate()的作用是:当点击的日期如果大于或等于今天的日期再执行
+                    if(year>=nowYear && month>nowMonth && parseInt(this.data.allNumber[i]) !== 0){
+                        backgroundColor[i] = true
+                        let orderDate = selectDate[i].orderDate;
+                        this.setData({ orderDate });
+                        wx.request({
+                            url: 'http://124.71.81.190:8881/serve/order/getOrderTime',
+                            data:{
+                                    date:this.data.orderDate,
+                                    orderId:selectDate[i].orderId
+                                },
+                            success:res => {
+                                console.log(res);
+                                let a = res.data.data;
+                                let types = a.map(v => v.orderTime + '(' + v.allowNumber + ')')
+                                this.setData({ types })
+                                console.log(this.data.types);
+                            }
+                        })
+                    }else if(year == nowYear && month == nowMonth && i + 1>=nowDay && parseInt(this.data.allNumber[i]) !== 0){
+                        backgroundColor[i] = true
+                        let orderDate = selectDate[i].orderDate;
+                        this.setData({ orderDate });
+                        wx.request({
+                            url: 'http://124.71.81.190:8881/serve/order/getOrderTime',
+                            data:{
+                                    date:this.data.orderDate,
+                                    orderId:selectDate[i].orderId
+                                },
+                            success:res => {
+                                console.log(res);
+                                let a = res.data.data;
+                                let types = a.map(v => v.orderTime + '(' + v.allowNumber + ')')
+                                this.setData({ types })
+                                console.log(this.data.types);
+                            }
+                        })
+                    }
                 }else{
                     backgroundColor[i] = false
+                    this.setData({selectType:'',types:[]})      //当点击非预约日期或背景为灰色的日期，下拉框中的日期赋值为空，
+                                                                //否则点击一个可预约并且有课预约人数不为0的日期后再点击空白日期或
+                                                                //灰色日期后下拉框中还会有残留的时间段
+                    console.log(this.data.types);
                 }
                 this.setData({backgroundColor})
-                console.log(this.data.backgroundColor);
+                // console.log(this.data.backgroundColor);
             }
         })
     },
@@ -223,10 +279,11 @@ Page({
         let medicalCard = wx.getStorageSync('medicalCard'); //获取用户的卡号
         if(orderTime&&orderDate){       //如果日期和时间不为空
             wx.requestSubscribeMessage({
-                tmplIds: ['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08'],
+                //
+                tmplIds: ['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08','Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'],
                 success (res) {
                     console.log(res);
-                    if(res['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08'] === 'accept'){
+                    if(res['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08'] === 'accept' && res['Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'] === 'accept'){
                         console.log('success');
                         request({url:'/serve/order/orderProject',data:{medicalCard,orderDate,orderProject,orderTime,relId},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
                         .then(
@@ -261,6 +318,9 @@ Page({
                         icon:'none'
                         })
                     }
+                },
+                fail:err => {
+                    console.log(err);
                 }
             })
         }else{  //如果日期和时间段为空
@@ -284,7 +344,7 @@ Page({
         this.handleDate();
 
         //日历表中开头的空格数
-        this.ZhangLei();
+        this.judgeWeek();
     },
 
     onShow(){

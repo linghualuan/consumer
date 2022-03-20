@@ -44,9 +44,7 @@ Page({
         request({url:'/superRoot/project/getBlackOrWhiteList',data:{black:0}})
         .then(
             res => {
-                // console.log(res)
                 let records = res.data.data;
-                // console.log(records)
                 let userInfoUnpassed = [];
                 for(let i =0;i<records.length;i++){
                     userInfoUnpassed[i] = records[i]

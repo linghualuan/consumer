@@ -71,7 +71,7 @@ Page({
                             icon:'none'
                             })
                             setTimeout(() => {
-                                wx.reLaunch({
+                                wx.navigateBack({
                                 url: '../number_mine/number_mine',
                                 })
                             },2000)

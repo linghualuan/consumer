@@ -169,7 +169,7 @@ Page({
           let isActive = false
           this.setData({isActive})
           setTimeout(() => {
-            wx.reLaunch({
+            wx.navigateBack({
               url: '../nurse_injection/nurse_injection',
             })
           },1000)
@@ -224,9 +224,8 @@ Page({
           icon:'none'
         })
       }
-      
-
     },
+
     onLoad(option) {
       this.QueryParams.medicalCard = option.medicalCard;
       this.QueryParams.project = option.project;

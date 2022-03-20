@@ -21,7 +21,7 @@
             </view>
             </view>
             <view wx:if="{{!userInfoUnpassed.length}}" class='noData'>
-                <image src='../../img/Super-Admin/NoData.png' mode="widthFix"/>
+                <image src='/img/NoData.png' mode="widthFix"/>
             </view>
         </block>
     <block wx:if="{{tabs[1].isActive}}">
@@ -35,8 +35,6 @@
                         <view class="title_address">中南大学湘雅二医院</view>
                         <view class="title_project">姓名：{{item.name}}</view>
                     </view>
-                    <!-- <view class="top_icon" style="background-color: white;">
-                    </view> -->
                 </view>
                 <view class="bottom">
                     <view class="btm_number">就诊卡号:{{item.medicalCard}}</view>
@@ -45,7 +43,7 @@
             </view>
         </view>
         <view wx:if="{{!userInfo.length}}" class='noData'>
-            <image src='../../img/Super-Admin/NoData.png' mode="widthFix"/>
+            <image src='/img/NoData.png' mode="widthFix"/>
         </view>
     </block>
 </Tabs>

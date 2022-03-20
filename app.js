@@ -1,35 +1,49 @@
 App({
   onLaunch() {
 
-    
-    this.demo();
+    wx.login({
+      success: res => {
+
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log("code:"+res.code);
+        wx.request({
+          url: 'http://124.71.81.190:8881/login/up',
+          data: {code:res.code},
+          method: 'get',
+          success: (res)=>{
+            console.log('token:'+res.data.data);
+            this.globalData.token = res.data.data;
+            wx.setStorage({key:'token', data:res.data.data});
+          },
+        });
+      }
+    })
+
     let number = wx.getStorageSync('medicalCard');
     if(number){
       this.localCheck(number);
     }
   },
 
-  demo(){
-    // return new Promise((resolve,reject) => {
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          console.log("code:"+res.code);
-          wx.request({
-            url: 'http://124.71.81.190:8881/login/up',
-            data: {code:res.code},
-            method: 'get',
-            success: (res)=>{
-              // resolve(res.data.data)
-              console.log('token:'+res.data.data);
-              this.globalData.token = res.data.data;
-              wx.setStorage({key:'token', data:res.data.data});
-            },
-          });
-        }
-      })
-    // })
-  },
+  // demo(){
+  //   wx.login({
+  //     success: res => {
+  //       // 发送 res.code 到后台换取 openId, sessionKey, unionId
+  //       console.log("code:"+res.code);
+  //       wx.request({
+  //         url: 'http://124.71.81.190:8881/login/up',
+  //         data: {code:res.code},
+  //         method: 'get',
+  //         success: (res)=>{
+  //           // resolve(res.data.data)
+  //           console.log('token:'+res.data.data);
+  //           this.globalData.token = res.data.data;
+  //           wx.setStorage({key:'token', data:res.data.data});
+  //         },
+  //       });
+  //     }
+  //   })
+  // },
 
   //本地身份检查方法
   localCheck(number) {
@@ -59,7 +73,6 @@ App({
         },0)
     }else if(number && number !== 's10001' && number !== 'n10002'
     && number !== 'n10003' && number !== 't10004') {
-      console.log('--------------');
       //如果本地信息非空且非管理员身份则跳转患者部分
       setTimeout(() => {
         wx.reLaunch({

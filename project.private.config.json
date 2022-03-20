@@ -173,6 +173,12 @@
                     "pathName": "pages/addProject/addProject",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/inspect_detail/inspect_detail",
+                    "pathName": "pages/inspect_detail/inspect_detail",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

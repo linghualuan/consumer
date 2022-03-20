@@ -8,7 +8,7 @@
         </view>
     </view>
     <view class="content" style="{{isSelect?'height:'+52*lengthSelect.length+'rpx':'height:0'}}">
-        <view class="item" bindtap="handleSelect" wx:for="{{select}}" wx:key="*this" data-index="{{index}}">{{item}}</view>
+        <view class="item" bindtap="handleSelect" wx:for="{{select}}" wx:key="*this" data-index="{{index}}">{{select ? item : ''}}</view>
     </view>
 </view>
 

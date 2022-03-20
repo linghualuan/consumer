@@ -12,28 +12,21 @@
     <view class="con_top">
         <view class="top_project">{{project}}</view>
         <view class="top_date">
-            日期
-            <text>{{date}}</text>
+            日期: <text>{{date}}</text>
         </view>
         <view class="top_date">
-            需等待约:
-            <text>{{cutDownTime}}</text>
+            需等待约: <text>{{cutDownTime}}分钟</text>
         </view>
         <view class="top_date">
-            前方排队:
-            <text>{{rank}}</text>
+            前方排队: <text>{{rank}}人</text>
         </view>
         <view class="top_date">
-            号码:
-            <text>{{scanNumber}}</text>
+            号码: <text>{{scanNumber}}</text>
         </view>
     </view>
     <view class="con_bottom">
         <view class="btm">当前时间：{{nowTime}}</view>
         <view class="btm">检查时间：{{turnTime}}</view>
-        <view class="btm">登记信息: 小程序</view>
-        <view class="btm_btn" wx:if="{{demo==='0' ? false : true}}">
-            <button bindtap="handleUnorder">取消检查</button>
-        </view>
+        <view class="btm_btn" bindtap="handleUnorder">取消检查</view>
     </view>
 </view>

@@ -86,6 +86,9 @@ page .wrap .date .date_day .day .day_item .item_allNumber {
 page .wrap .date .date_day .day .abc {
   background-color: #6dbbbc;
 }
+page .wrap .date .date_day .day .def {
+  background-color: #ccc;
+}
 page .wrap .select {
   display: flex;
   margin: 40rpx 20rpx;

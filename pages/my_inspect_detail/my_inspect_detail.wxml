@@ -12,7 +12,7 @@
     <view class="con_top">
         <view class="top_project">{{project}}</view>
         <view class="top_date">
-            日期
+            日期:
             <text>{{date}}</text>
         </view>
         <view class="top_date">
@@ -23,9 +23,5 @@
     <view class="con_bottom">
         <view class="btm">当前时间：{{nowTime}}</view>
         <view class="btm">检查时间：{{turnTime}}</view>
-        <view class="btm">登记信息: 小程序</view>
-        <view class="btm_btn" wx:if="{{demo==='0' ? false : true}}">
-            <button bindtap="handleUnorder">取消检查</button>
-        </view>
     </view>
 </view>

@@ -5,9 +5,6 @@
               <image src="../../img/slideshow/swiper01.jpg" mode="widthFix"/>
             </swiper-item>
             <swiper-item >
-              <image src="../../img/slideshow/swiper02.jpg" mode="widthFix"/>
-            </swiper-item>
-            <swiper-item >
               <image src="../../img/slideshow/swiper03.jpg" mode="widthFix"/>
             </swiper-item>
             <swiper-item >
@@ -21,7 +18,7 @@
     <view class="content_item">
         <view class="item">
             <navigator open-type="navigate" url="../addProject/addProject">
-                <image src="../../img/Super-Admin/projectManagement.png" mode="widthFix"/>
+                <image src="../../img/Super-Admin/add-file.png" mode="widthFix"/>
                 <view class="item_title">添加项目</view>
             </navigator>
         </view>
@@ -51,7 +48,7 @@
         </view>
         <view class="item">
             <navigator open-type="navigate" url="../blacklist/blacklist">
-                <image src="../../img/Super-Admin/informationPerson.png" mode="widthFix"/>
+                <image src="../../img/Super-Admin/unlocking.png" mode="widthFix"/>
                 <view class="item_title">解除拉黑</view>
             </navigator>
         </view>

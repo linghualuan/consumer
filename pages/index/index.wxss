@@ -1,10 +1,11 @@
 page {
   background-color: #FAF2F9;
   position: relative;
+  font-family: '幼圆';
+  padding-bottom: 20rpx;
 }
 page .content {
   width: 100vw;
-  height: 100vh;
 }
 page .content .content_swiper swiper {
   height: calc(100vw * 380 / 1100);
@@ -25,10 +26,10 @@ page .content .title {
 page .content .content_item {
   background-color: white;
   width: 92%;
-  flex-wrap: wrap;
-  display: flex;
   margin-right: 4%;
   margin-left: 4%;
+  flex-wrap: wrap;
+  display: flex;
   align-items: center;
 }
 page .content .content_item .item {
@@ -62,16 +63,27 @@ page .content .content_item .item .scanCode image {
 page .content .content_item .item .scanCode .item_title {
   text-align: center;
 }
-page .content .content_mag {
-  width: 92%;
+page .content .footer {
   background-color: white;
   margin: 0 auto;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
+  width: 92vw;
 }
-page .content .content_mag p {
-  display: block;
-  margin: 20rpx;
-  font-size: 35rpx;
+page .content .footer .item_instruction {
+  padding: 10rpx 10rpx;
+}
+page .content .footer .item_instruction .hint {
+  font-weight: 600;
+}
+page .content .footer .item_instruction .hint .dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #6dbbbc;
+}
+page .content .footer .instruction_title {
+  padding: 10rpx 10rpx;
+  text-indent: 1em;
 }
 page .background {
   position: absolute;
