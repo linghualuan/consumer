@@ -112,7 +112,7 @@ Page({
 
   //------------------------------------------------------------------------------
 
-  //添加事件段
+  //添加时间段
   add_time(){
     let timeList = this.data.timeList;
     let item = {startTime:'',endTime:'',number:0};
@@ -137,31 +137,12 @@ Page({
     let year2 = date2.slice(0,4);
     let month2 = date2.slice(5,7);
     let day2 = date2.slice(8,10);
-    //-------------------------------
-    if(parseInt(year1) <= parseInt(year2)){
-      if(parseInt(month1) <= parseInt(month2)){
-        if(parseInt(day1) <= parseInt(day2)){
-          return true
-        }else{
-          return false
-        }
-      }else{
-        return false
-      }
+
+    //开始年月日和结束年月日相加转化为整数比较大小，当开始日期相加得到的整数小于结束日期得到的整数返回true，否则返回false
+    if(parseInt(year1+month1+day1) <= parseInt(year2+month2+day2)){
+      return true
     }else{
       return false
-    }
-  },
-
-  //判断开始时间和结束时间大小
-  handleJudgeTime(time){
-    for(let i=0 ; i<time.length ; i++){
-      let startTime1 = time[i].startTime.slice(0,2);
-      let startTime2 = time[i].startTime.slice(3,5);
-      let endTime1 = time[i].endTime.slice(0,2);
-      let endTime2 = time[i].endTime.slice(3,5);
-      console.log(parseInt(startTime1 + startTime2));
-      console.log(parseInt(endTime1 + endTime2));
     }
   },
 
@@ -181,6 +162,7 @@ Page({
       let endTime2 = item.endTime.slice(3,5);
       return parseInt(startTime1 + startTime2) < parseInt(endTime1 + endTime2)
     })
+
 
     if(!startDate || !overDate){
       wx.showToast({
@@ -232,5 +214,5 @@ Page({
         )
       }
     }
-  },
+  }
 })

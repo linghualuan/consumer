@@ -4,7 +4,6 @@
         "pages/user_authorization/user_authorization",
         "pages/user_instructions/user_instructions",
         "pages/index/index",
-        "pages/search/search",
         "pages/order_project/order_project",
         "pages/order_mine/order_mine",
         "pages/report/report",

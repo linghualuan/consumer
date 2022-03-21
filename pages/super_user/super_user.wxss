@@ -41,10 +41,13 @@ page .content .col .inp input {
   line-height: 70rpx;
 }
 page .content .btn {
-  margin-top: 150rpx;
-}
-page .content .btn button {
+  width: 300rpx;
+  height: 70rpx;
   color: white;
-  border-radius: 25rpx;
+  border-radius: 35rpx;
+  text-align: center;
+  line-height: 70rpx;
+  margin: 0 auto;
+  margin-top: 150rpx;
   background-color: #6DBBB4;
 }

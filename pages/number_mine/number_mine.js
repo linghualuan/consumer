@@ -62,9 +62,14 @@ Page({
                 this.setData({ userInfoInspect })
             }
         )
+        wx.stopPullDownRefresh();
     },
 
     onReady(){
         this.handleInjectionList();
+    },
+
+    onPullDownRefresh(){
+        this.handleReadyQueue();
     }
 })

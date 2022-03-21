@@ -45,6 +45,7 @@ Page({
                 this.setData({scanNumber, date, turnTime, rank, injectNumber, cutDownTime, project,injectState,time,dose,position})
             }
         )
+        wx.stopPullDownRefresh();
     },
 
     handleTime(){
@@ -94,4 +95,9 @@ Page({
 
         this.handleQueueDetail();
     },
+
+    onPullDownRefresh(){
+        this.handleQueueDetail();
+        this.handleTime();
+    }
 })

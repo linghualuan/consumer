@@ -49,6 +49,7 @@ Page({
                 this.setData({ userInfo })
             }
         )
+        wx.stopPullDownRefresh();
     },
 
     handleUserInfoPassed(){
@@ -89,5 +90,9 @@ Page({
      onShow(){
         //页面左上角小房子消失
         wx.hideHomeButton()
-    }  
+    },
+
+    onPullDownRefresh(){
+        this.handleUserInfo()
+    }
 })

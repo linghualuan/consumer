@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    showQRcode:false,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -46,8 +47,35 @@ Page({
     })
   },
 
-    onShow(){
-        //页面左上角小房子消失
-        wx.hideHomeButton()
-    }
+  handleShowQRcode(){
+    let showQRcode = this.data.showQRcode;
+    showQRcode = !showQRcode;
+    this.setData({showQRcode})
+    console.log(this.data.showQRcode);
+  },
+
+  handleClickQRcode(){
+    let fileName = new Date().valueOf()
+    let filePath = wx.env.USER_DATA_PATH + "/" + fileName + '.jpg'
+    wx.downloadFile({
+      url:'http://124.71.81.190:8881/createCode/patient',
+      filePath:filePath,
+      success:res => {
+        // const tempFilePath = res.tempFilePath;
+        wx.saveImageToPhotosAlbum({
+          filePath: filePath,
+          success: (result)=>{
+            wx.showToast({
+              title: '保存成功',
+            })
+          },
+        });
+      }
+    })
+  },
+
+  onShow(){
+      //页面左上角小房子消失
+      wx.hideHomeButton()
+  }
 })

@@ -16,13 +16,13 @@
       <view class="sub_name">预约时段：</view>
       <view class="time_wrap">
         <view class="time_left">
-          <picker mode="time" value="" start="06:01" end="23:59" bindchange="bindTimeChangeStart" data-index="{{index}}">
+          <picker mode="time" value="" start="06:00" end="23:59" bindchange="bindTimeChangeStart" data-index="{{index}}">
             <view class="picker">{{item.startTime}}</view>
           </picker>
         </view>
         <view class="and">--</view>
         <view class="time_right">
-          <picker mode="time" value="" start="06:01" end="23:59" bindchange="bindTimeChangeEnd" data-index="{{index}}">
+          <picker mode="time" value="" start="06:00" end="23:59" bindchange="bindTimeChangeEnd" data-index="{{index}}">
             <view class="picker">{{item.endTime}}</view>
           </picker>
         </view>

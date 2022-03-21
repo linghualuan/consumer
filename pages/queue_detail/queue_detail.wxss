@@ -1,9 +1,10 @@
 page {
   background-color: #6DBBB4;
-  padding: 30rpx;
+  height: 100vh;
 }
 page .content {
   position: relative;
+  margin: 30rpx;
 }
 page .content .left_div {
   width: 60rpx;
@@ -102,7 +103,7 @@ page .content .con_bottom .btm {
 }
 page .content .con_bottom .btm_btn {
   width: 290rpx;
-  background-color: #ccc;
+  background-color: #eee;
   text-align: center;
   height: 70rpx;
   line-height: 70rpx;

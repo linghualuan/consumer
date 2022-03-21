@@ -15,8 +15,8 @@
         <view class="col">
             <view class="inp"><input type="text" name="tel" value="{{tel}}" bindinput="handleTel" placeholder="手机号"/></view>
         </view>
-        <view class="btn">
-            <button bindtap="handleSubmit">提交</button>
+        <view class="btn" bindtap="handleSubmit">
+            提交
         </view>
     </view>
 </view>

@@ -43,6 +43,7 @@ Page({
                 this.setData({ userInfo })
             }
         )
+        wx.stopPullDownRefresh();
     },
 
     //获得注射成功患者的信息
@@ -83,5 +84,9 @@ Page({
         //页面刚加载时获取签到注射用户数据
         this.handleUserInfo();
         wx.hideHomeButton()
+    },
+
+    onPullDownRefresh(){
+        this.handleUserInfo();
     }
 })

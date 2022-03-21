@@ -192,32 +192,25 @@ Page({
 
     //拉黑用户
     handleSubmit(){
-        let medicalCard = this.data.medicalCard;
-        let orderProject = this.data.orderProject;
+        let id = this.QueryParams.id;
+        let relId = wx.getStorageSync('relId');
         wx.showModal({
             title:'提示',
             content:'是否将用户拉黑',
             success: res => {
                 if(res.confirm){
-                    request({url:'/infoCommit/black',data:{medicalCard,project:orderProject}})
+                    request({url:'/infoCommit/change',data:{id,relId,status:-1},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
                     .then(
                         res => {
-                            if(res.data.code === 1){
-                                wx.showToast({
-                                    title:'拉入黑名单成功',
-                                    icon:'none'
+                            console.log(res);
+                            wx.showToast({
+                                title: '操作成功'
+                            })
+                            setTimeout(()=>{
+                                wx.reLaunch({
+                                url: '../nurse_order/nurse_order',
                                 })
-                                setTimeout(() => {
-                                    wx.reLaunch({
-                                      url: '../nurse_order/nurse_order',
-                                    })
-                                },1000)
-                            }else{
-                                wx.showToast({
-                                    title:'拉入黑名单失败',
-                                    icon:'none'
-                                })
-                            }
+                            },1000)
                         }
                     )
                 }else if(res.cancel){

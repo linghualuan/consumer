@@ -2,5 +2,7 @@
   "usingComponents": {
     "Tabs":"../../conponents/Tabs/Tabs"
   },
-  "navigationBarTitleText": "检查列表"
+  "navigationBarTitleText": "检查列表",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
 }

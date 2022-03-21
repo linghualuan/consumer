@@ -44,6 +44,7 @@ Page({
                 })
             }
         )
+        wx.stopPullDownRefresh();
     },
 
     //获取检查成功患者信息
@@ -87,5 +88,9 @@ Page({
 
     onShow(){
         wx.hideHomeButton()
+    },
+
+    onPullDownRefresh(){
+        this.handleUserInfo();
     }
 })

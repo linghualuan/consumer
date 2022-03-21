@@ -1,5 +1,6 @@
 page {
   background-color: #FAF2F9;
+  position: relative;
 }
 page .content .content_swiper swiper {
   height: calc(100vw * 380 / 1100);
@@ -46,6 +47,17 @@ page .content .content_item .item navigator image {
 page .content .content_item .item navigator .item_title {
   text-align: center;
 }
+page .content .content_item .item .QRcode {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+page .content .content_item .item .QRcode image {
+  width: 60%;
+}
+page .content .content_item .item .QRcode .item_title {
+  text-align: center;
+}
 page .content .content_mag {
   width: 92%;
   background-color: white;
@@ -56,4 +68,53 @@ page .content .content_mag p {
   display: block;
   margin: 20rpx;
   font-size: 35rpx;
+}
+page .showQRcode {
+  position: absolute;
+  top: 30vw;
+  left: 10vw;
+  width: 80vw;
+  height: 70vw;
+  background-color: white;
+  border-radius: 10rpx;
+}
+page .showQRcode .codeHeader {
+  height: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+page .showQRcode .codeHeader .code_title {
+  flex: 5;
+  text-align: center;
+}
+page .showQRcode .codeHeader .code_error {
+  flex: 1;
+  text-align: center;
+}
+page .showQRcode .codeHeader .code_error image {
+  width: 50%;
+  height: 50%;
+}
+page .showQRcode .codeFooter {
+  background-color: #eee;
+  height: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10rpx;
+}
+page .showQRcode .codeFooter .content_img {
+  flex: 5;
+}
+page .showQRcode .codeFooter .content_img image {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5vw;
+  width: 50%;
+  height: 50%;
+}
+page .showQRcode .codeFooter .content_title {
+  flex: 1;
+  text-align: center;
 }

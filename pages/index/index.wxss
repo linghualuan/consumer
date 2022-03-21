@@ -3,6 +3,7 @@ page {
   position: relative;
   font-family: '幼圆';
   padding-bottom: 20rpx;
+  height: 100vh;
 }
 page .content {
   width: 100vw;

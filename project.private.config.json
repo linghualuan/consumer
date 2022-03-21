@@ -97,20 +97,8 @@
                     "scene": null
                 },
                 {
-                    "name": "管理员登录页面",
-                    "pathName": "pages/super_user/super_user",
-                    "query": "",
-                    "scene": null
-                },
-                {
                     "name": "pages/search/search",
                     "pathName": "pages/search/search",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "管理登录界面",
-                    "pathName": "pages/super_user/super_user",
                     "query": "",
                     "scene": null
                 },
@@ -163,20 +151,20 @@
                     "scene": null
                 },
                 {
-                    "name": "pages/date/date",
-                    "pathName": "pages/date/date",
-                    "query": "orderProject=%E7%94%B2%E7%8A%B6%E8%85%BA%E6%B3%A8%E5%B0%84",
-                    "scene": null
-                },
-                {
                     "name": "添加项目",
                     "pathName": "pages/addProject/addProject",
                     "query": "",
                     "scene": null
                 },
                 {
-                    "name": "pages/inspect_detail/inspect_detail",
-                    "pathName": "pages/inspect_detail/inspect_detail",
+                    "name": "管理登录页面",
+                    "pathName": "pages/super_user/super_user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "用户登录界面",
+                    "pathName": "pages/userInfo/userInfo",
                     "query": "",
                     "scene": null
                 }
