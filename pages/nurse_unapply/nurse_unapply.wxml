@@ -24,7 +24,7 @@
         <view class="inp"><input type="text" value="{{orderDate}}" disabled/></view>
     </view>
     <view class="col">
-        <view class="title">预约时间</view>
+        <view class="title">预约时间段</view>
         <view class="inp"><input type="text" value="{{orderTime}}" disabled/></view>
     </view>
     <view class="col" wx:if="{{errorMsg}}">

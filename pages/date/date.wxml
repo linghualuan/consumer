@@ -4,6 +4,9 @@
         <text>*绿色背景为可预约日期</text>)
     </view>
     <view class="date">
+        <view class='orderProject'>
+            {{orderProject}}
+        </view>
         <view class="date_title">
             <view class="left_arrow" bindtap="handleMouthSub">
                 <image src="../../img/retreat.png" mode="widthFix"/>

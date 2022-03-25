@@ -6,11 +6,12 @@
 .wrap .item {
   width: 40vw;
   height: 50vw;
-  background-color: #ffe208;
+  background-color: #66CCFF;
   color: white;
   display: flex;
   flex-direction: column;
-  box-shadow: 20rpx 20rpx 20rpx #ccc;
+  box-shadow: 15rpx 15rpx 20rpx #ccc;
+  border-radius: 10rpx;
 }
 .wrap .item .img {
   flex: 4;

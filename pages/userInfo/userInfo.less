@@ -28,21 +28,37 @@ page{
             .col{
                 margin:30rpx 40rpx;
                 display: flex;
+                flex-direction: column;
                 .title{
                     flex:2;
-                    text-align: right;
+                    text-indent: 10rpx;
+                    font-size: 28rpx;
+                    color:#666;
                     padding-right:30rpx;
+                    margin-bottom: 10rpx;
                 }
                 .inp{
                     flex:5;
-                    height:80rpx;
+                    height:60rpx;
                     input{
                         background-color: white;
-                        border-radius: 10rpx;
                         padding-left:30rpx;
                         height:100%;
-                        border-radius: 40rpx;
+                        border-radius: 8rpx;
                         filter:opacity(70%);
+                        box-shadow: 4rpx 4rpx 4rpx #ccc;
+                    }
+                    .picker{
+                        height:60rpx;
+                        .input{
+                            background-color: white;
+                            padding-left:30rpx;
+                            height:100%;
+                            border-radius: 8rpx;
+                            filter:opacity(70%);
+                            color:#888;
+                            box-shadow: 4rpx 4rpx 4rpx #ccc;
+                        }
                     }
                 }
             }

@@ -12,21 +12,27 @@
     <view class="con_top">
         <view class="top_project">{{project}}</view>
         <view class="top_date">
-            日期: <text>{{date}}</text>
+            <view class='item_title'>日期:</view>
+            <text>{{date}}</text>
         </view>
         <view class="top_date">
-            需等待约: <text>{{cutDownTime}}分钟</text>
+            <view class='item_title'>需等待约:</view>
+            <text>{{cutDownTime}}分钟</text>
         </view>
         <view class="top_date">
-            前方排队: <text>{{rank}}人</text>
+            <view class='item_title'>前方排队:</view>
+            <text>{{rank}}人</text>
         </view>
         <view class="top_date">
-            号码: <text>{{scanNumber}}</text>
+            <view class='item_title'>排队序号:</view>
+            <text>{{scanNumber}}</text>
         </view>
-    </view>
-    <view class="con_bottom">
-        <view class="btm">当前时间：{{nowTime}}</view>
-        <view class="btm">检查时间：{{turnTime}}</view>
-        <view class="btm_btn" bindtap="handleUnorder">取消检查</view>
+        <view class="top_date">
+            <view class='item_title'>检查时间:</view>
+            <text >{{turnTime}}</text>
+        </view>
+        <view class="btn" bindtap="handleUnorder">
+            取消检查
+        </view>
     </view>
 </view>

@@ -21,7 +21,8 @@ Page({
         select:false,   //是否已经预约
         backgroundColor:[],     //点击可预约日期变色
         allNumber:[],    //绿色背景下的可预约人数
-        notSelect:[]
+        notSelect:[],
+        orderProject:''
     },
 
     QueryParams:{
@@ -86,6 +87,8 @@ Page({
 
     //获取当前年月份并给data中的数据赋值
     handleTime(){
+        //给orderProject赋值
+        this.setData({orderProject:this.QueryParams.orderProject})
         //获取当前时间
         var time = util.formatTime(new Date());
 
@@ -279,7 +282,6 @@ Page({
         let medicalCard = wx.getStorageSync('medicalCard'); //获取用户的卡号
         if(orderTime&&orderDate){       //如果日期和时间不为空
             wx.requestSubscribeMessage({
-                //
                 tmplIds: ['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08','Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'],
                 success (res) {
                     console.log(res);

@@ -1,33 +1,40 @@
 <view class="content" style="{{isActive?'filter: brightness(40%);background-color:white':''}}">
     <view class="col">
         <view class="title">就诊卡号</view>
-        <view class="inp"><input type="text" value="{{medicalCard}}"/></view>
+        <view class="inp"><input type="text" value="{{medicalCard}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">姓名</view>
-        <view class="inp"><input type="text" value="{{name}}"/></view>
+        <view class="inp"><input type="text" value="{{name}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">性别</view>
-        <view class="inp"><input type="text" value="{{sex}}"/></view>
+        <view class="inp"><input type="text" value="{{sex}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">手机号</view>
-        <view class="inp"><input type="text" value="{{tel}}"/></view>
+        <view class="inp"><input type="text" value="{{tel}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">检查项目</view>
-        <view class="inp"><input type="text" value="{{project}}"/></view>
+        <view class="inp"><input type="text" value="{{project}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">检查时间</view>
-        <view class="inp"><input type="text" value="{{turnTime}}"/></view>
+        <view class="inp"><input type="text" value="{{turnTime}}" disabled/></view>
+    </view>
+    <view class="col">
+        <view class="title">检查完成时间</view>
+        <view class="inp"><input type="text" style='{{nowTime ? "" : "color:#ccc"}}' value="{{nowTime ? nowTime : '点击获取当前时间'}}" disabled bindtap='handleNowTime'/></view>
     </view>
     <view class="btn1">
         <view bindtap="handleClickSuccess" class='btn'>检查成功</view>
     </view>
     <view class="btn2">
         <view bindtap="handleFail" class='btn'>检查失败</view>
+    </view>
+    <view class="btn3">
+        <view bindtap="handleCallUser" class='btn'>呼叫患者</view>
     </view>
 </view>
 

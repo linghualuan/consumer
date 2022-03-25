@@ -1,14 +1,27 @@
 <view class="content">
     <view class="col">
-        <view class="inp"><input type="text" value="{{medicalCard}}" bindinput="handleMedicalCard" placeholder="就诊卡号" disabled/></view>
+        <view class='title'>
+            就诊卡号
+        </view>
+        <view class="inp">
+            <input type="text" value="{{medicalCard}}" bindinput="handleMedicalCard" placeholder="就诊卡号" disabled/>
+        </view>
     </view>
     <view class="col">
+        <view class='title'>姓名</view>
         <view class="inp"><input type="text" value="{{name}}" bindinput="handleName" placeholder="姓名"/></view>
     </view>
     <view class="col">
-        <view class="inp"><input type="text" value="{{sex}}" bindinput="handleSex" placeholder="性别"/></view>
+        <view class='title'>性别</view>
+        <view class="inp">
+            <picker mode="selector" value="{{sex}}" range="{{sexSelect}}" bindchange="handlePendSex">
+                <view class="picker">
+                    <view class='input'>{{sex}}</view>
+                </view>
+            </picker></view>
     </view>
     <view class="col">
+        <view class='title'>手机号</view>
         <view class="inp"><input type="text" value="{{tel}}" bindinput="handleTel" placeholder="手机号"/></view>
     </view>
     <view class="btn">

@@ -12,16 +12,20 @@
     <view class="con_top">
         <view class="top_project">{{project}}</view>
         <view class="top_date">
-            日期:
+            <view class='item_date'>检查完成日期:</view>
             <text>{{date}}</text>
         </view>
         <view class="top_date">
-            号码:
-            <text>{{scanNumber}}</text>
+            <view class='item_date'>排队序号:</view>
+            <text>{{scanNumber}}号</text>
         </view>
-    </view>
-    <view class="con_bottom">
-        <view class="btm">当前时间：{{nowTime}}</view>
-        <view class="btm">检查时间：{{turnTime}}</view>
+        <view class="top_date">
+            <view class='item_date'>检查时间:</view>
+            <text>{{turnTime}}</text>
+        </view>
+        <view class="top_date">
+            <view class='item_date'>检查完成时间:</view>
+            <text>{{nowTime}}</text>
+        </view>
     </view>
 </view>

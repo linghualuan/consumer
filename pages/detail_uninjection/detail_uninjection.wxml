@@ -1,39 +1,39 @@
 <view class="content">
     <view class="col">
         <view class="title">就诊卡号</view>
-        <view class="inp"><input type="text" value="{{medicalCard}}"/></view>
+        <view class="inp"><input type="text" value="{{medicalCard}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">姓名</view>
-        <view class="inp"><input type="text" value="{{name}}"/></view>
+        <view class="inp"><input type="text" value="{{name}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">性别</view>
-        <view class="inp"><input type="text" value="{{sex}}"/></view>
+        <view class="inp"><input type="text" value="{{sex}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">手机号</view>
-        <view class="inp"><input type="text" value="{{tel}}"/></view>
+        <view class="inp"><input type="text" value="{{tel}}" disabled/></view>
     </view>
         <view class="col">
         <view class="title">预约项目</view>
-        <view class="inp"><input type="text" value="{{project}}"/></view>
+        <view class="inp"><input type="text" value="{{project}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">注射部位</view>
-        <view class="inp"><input type="text" value='{{position}}'/></view>
+        <view class="inp"><input type="text" value='{{position}}' disabled/></view>
     </view>
     <view class="col">
         <view class="title">注射剂量</view>
-        <view class="inp"><input type="text" value='{{dose}}'/></view>
+        <view class="inp"><input type="text" value='{{dose}}' disabled/></view>
     </view>
     <view class="col">
         <view class="title">注射时间</view>
-        <view class="inp"><input type="text" value="{{date}}"/></view>
+        <view class="inp"><input type="text" value="{{date}}" disabled/></view>
     </view>
     <view class="col" wx:if="{{errorMsg === '成功' ? false : true}}">
         <view class="title">失败原因</view>
-        <view class="inp"><textarea cols="10" rows="10" value='{{errorMsg}}'></textarea></view>
+        <view class="inp"><textarea cols="10" rows="10" value='{{errorMsg}}' disabled></textarea></view>
     </view>
 </view>
 

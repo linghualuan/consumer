@@ -5,7 +5,20 @@ Page({
         medicalCard:'',
         name:'',
         sex:'',
-        tel:''
+        tel:'',
+        sexSelect:['男','女']
+    },
+
+    handlePendSex(e){
+        let sex;
+        let index = e.detail.value;
+        if(index === '0'){
+            sex = '男'
+        }else{
+            sex = '女'
+        }
+        this.setData({sex})
+        console.log(this.data.sex);
     },
 
     onShow(){

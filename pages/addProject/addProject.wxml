@@ -1,40 +1,45 @@
 <view class='number'>
+  <view class='number_title'>项目名称</view>
   <view class='number_int'>
-    <input type="text" bindinput="handleProject" placeholder="项目名称"/>
+    <input type="text" bindinput="handleProject" placeholder="名称"/>
   </view>
 </view>
 
 <view class='number'>
+  <view class='number_title'>注射等待时长</view>
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handlePendWait">
       <view class="picker">
-        <view class='input' style="{{pendWait!=='' ? '' : 'color:#888'}}">{{pendWait!=='' ? pendWait : '注射等待时间'}}</view>
+        <view class='input' style="{{pendWait!=='' ? '' : 'color:#888'}}">{{pendWait!=='' ? pendWait + '分钟' : '单位/分钟'}}</view>
       </view>
     </picker>
   </view>
 </view>
 
 <view class='number'>
+  <view class='number_title'>检查预计时长</view>
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handlePendCheck">
       <view class="picker">
-        <view class='input' style="{{pendCheck!=='' ? '' : 'color:#888'}}">{{pendCheck!=='' ? pendCheck : '检查预估时间'}}</view>
+        <view class='input' style="{{pendCheck!=='' ? '' : 'color:#888'}}">{{pendCheck!=='' ? pendCheck + '分钟' : '单位/分钟'}}</view>
       </view>
     </picker>
   </view>
 </view>
 
 <view class='number'>
+  <view class='number_title'>可预约人数</view>
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handleOrderNumber">
       <view class="picker">
-        <view class='input' style="{{orderPeople!=='' ? '' : 'color:#888'}}">{{orderPeople!=='' ? orderPeople : '可预约人数'}}</view>
+        <view class='input' style="{{orderPeople!=='' ? '' : 'color:#888'}}">{{orderPeople!=='' ? orderPeople + '人' : '可预约人数'}}</view>
       </view>
     </picker>
   </view>
 </view>
 
 <view class='number'>
+  <view class='number_title'>备注</view>
   <view class='number_int'>
     <textarea bindinput="handleNote" placeholder="备注"></textarea>
   </view>

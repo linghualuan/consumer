@@ -11,9 +11,11 @@ page .content {
 page .content .col {
   margin: 20rpx 40rpx;
   display: flex;
+  height: 60rpx;
 }
 page .content .col .title {
   flex: 2;
+  font-size: 36rpx;
   text-align: right;
   padding-right: 30rpx;
 }
@@ -21,6 +23,8 @@ page .content .col .inp {
   flex: 5;
 }
 page .content .col .inp input {
+  height: 60rpx;
+  box-shadow: 4rpx 4rpx 4rpx #ccc;
   background-color: white;
   border-radius: 10rpx;
   padding-left: 30rpx;
@@ -41,10 +45,10 @@ page .content .col .radio radio-group .label {
   padding-left: 10rpx;
 }
 page .content .col .radio radio-group .label radio {
-  transform: scale(0.5);
+  transform: scale(0.7);
 }
 page .content .col .radio radio-group .label text {
-  margin-left: -15rpx;
+  margin-left: -14rpx;
 }
 page .content .col_buwei .title {
   display: flex;
@@ -89,6 +93,7 @@ page .content .btn1 .btn {
   color: white;
   border-radius: 25rpx;
   background-color: #6DBBB4;
+  box-shadow: 3rpx 3rpx 3rpx #6dbbb4;
 }
 page .content .btn2 {
   margin-top: 50rpx;
@@ -102,6 +107,7 @@ page .content .btn2 .btn {
   color: white;
   border-radius: 25rpx;
   background-color: #FF0000;
+  box-shadow: 3rpx 3rpx 3rpx #FF0000;
 }
 page .demo2 {
   display: block;
@@ -117,7 +123,7 @@ page .wrap {
   background-color: #eee;
   position: absolute;
   border-radius: 10rpx;
-  z-index: 3;
+  z-index: 10;
 }
 page .wrap .error {
   position: absolute;
@@ -135,7 +141,7 @@ page .wrap .error image {
   height: 100%;
 }
 page .wrap .title {
-  width: 50%;
+  width: 70%;
   font-size: 36rpx;
   padding: 40rpx;
 }

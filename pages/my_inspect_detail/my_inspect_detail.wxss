@@ -10,7 +10,7 @@ page .content .left_div {
   height: 60rpx;
   background-color: #6dbbbc;
   position: absolute;
-  top: 450rpx;
+  top: 300rpx;
   left: -30rpx;
   z-index: 3;
   border-radius: 50%;
@@ -20,7 +20,7 @@ page .content .right_div {
   height: 60rpx;
   background-color: #6dbbbc;
   position: absolute;
-  top: 450rpx;
+  top: 300rpx;
   right: -30rpx;
   z-index: 3;
   border-radius: 50%;
@@ -44,72 +44,34 @@ page .content .title .title_name {
 page .content .con_top {
   background-color: white;
   border-bottom: #6dbbbc 5rpx solid;
-  text-align: center;
   font-size: 35rpx;
   display: flex;
-  height: 400rpx;
-  justify-content: center;
   flex-direction: column;
   padding-top: 20rpx;
-  border-top-left-radius: 20rpx;
-  border-top-right-radius: 20rpx;
+  border-radius: 20rpx;
   position: relative;
+  padding-bottom: 40rpx;
 }
 page .content .con_top .top_project {
   flex: 1;
+  text-align: center;
   font-size: 50rpx;
   font-weight: 600;
 }
 page .content .con_top .top_date {
   flex: 1;
   color: #F26D07;
+  display: flex;
+  height: 80rpx;
+}
+page .content .con_top .top_date .item_date {
+  flex: 1;
+  line-height: 80rpx;
+  text-align: right;
+  padding-right: 40rpx;
 }
 page .content .con_top .top_date text {
-  font-size: 50rpx;
-}
-page .content .con_top .top_time {
   flex: 1;
-  color: #F26D07;
-}
-page .content .con_top .top_time text {
+  line-height: 80rpx;
   font-size: 50rpx;
-}
-page .content .con_top .top_queue {
-  flex: 1;
-  color: #F26D07;
-}
-page .content .con_top .top_queue text {
-  font-size: 50rpx;
-}
-page .content .con_top .top_number {
-  flex: 1;
-  color: #F26D07;
-}
-page .content .con_top .top_number text {
-  font-size: 50rpx;
-}
-page .content .con_bottom {
-  height: 250rpx;
-  background-color: white;
-  padding: 10rpx 50rpx;
-  font-size: 35rpx;
-  border-bottom-left-radius: 20rpx;
-  border-bottom-right-radius: 20rpx;
-}
-page .content .con_bottom .btm {
-  height: 60rpx;
-  margin: 20rpx 0;
-}
-page .content .con_bottom .btm_btn {
-  flex: 2;
-  display: flex;
-  align-items: center;
-}
-page .content .con_bottom .btm_btn button {
-  height: 70%;
-  width: 290rpx;
-  background-color: #eee;
-  font-size: 35rpx;
-  line-height: 100%;
-  border-radius: 35rpx;
 }

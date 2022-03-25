@@ -9,14 +9,18 @@ page{
         .col{
             margin:20rpx 40rpx;
             display: flex;
+            height:60rpx;
             .title{
                 flex:2;
+                font-size: 36rpx;
                 text-align: right;
                 padding-right:30rpx;
             }
             .inp{
                 flex:5;
                 input{
+                    height:60rpx;
+                    box-shadow: 4rpx 4rpx 4rpx #ccc;
                     background-color: white;
                     border-radius: 10rpx;
                     padding-left:30rpx;
@@ -35,10 +39,10 @@ page{
                         font-size: 25rpx;
                         padding-left:10rpx;
                         radio{
-                            transform: scale(0.5);
+                            transform: scale(0.7);
                         }
                         text{
-                            margin-left:-15rpx;
+                            margin-left:-14rpx;
                         }
                     }
                 }
@@ -89,6 +93,7 @@ page{
                 color:white;
                 border-radius: 25rpx;
                 background-color: #6DBBB4;
+                box-shadow: 3rpx 3rpx 3rpx #6dbbb4;
             }
         }
         .btn2{
@@ -102,6 +107,7 @@ page{
                 color:white;
                 border-radius: 25rpx;
                 background-color: #FF0000;
+                box-shadow: 3rpx 3rpx 3rpx #FF0000;
             }
         }
     }
@@ -111,6 +117,8 @@ page{
     .demo3{
         display: none;
     }
+
+    //弹出框
     .wrap{
         top:120rpx;
         left:10vw;
@@ -119,7 +127,7 @@ page{
         background-color: #eee;
         position: absolute;
         border-radius: 10rpx;
-        z-index: 3;
+        z-index: 10;
         .error{
             position: absolute;
             top:0;
@@ -136,7 +144,7 @@ page{
             }
         }
         .title{
-            width:50%;
+            width:70%;
             font-size: 36rpx;
             padding:40rpx;
         }

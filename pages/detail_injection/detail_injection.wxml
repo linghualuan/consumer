@@ -1,23 +1,23 @@
 <view class="content" style="{{isActive?'filter: brightness(40%);background-color:white':''}}">
     <view class="col">
         <view class="title">就诊卡号</view>
-        <view class="inp"><input type="text" value="{{medicalCard}}"/></view>
+        <view class="inp"><input type="text" value="{{medicalCard}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">姓名</view>
-        <view class="inp"><input type="text" value="{{name}}"/></view>
+        <view class="inp"><input type="text" value="{{name}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">性别</view>
-        <view class="inp"><input type="text" value="{{sex}}"/></view>
+        <view class="inp"><input type="text" value="{{sex}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">手机号</view>
-        <view class="inp"><input type="text" value="{{tel}}"/></view>
+        <view class="inp"><input type="text" value="{{tel}}" disabled/></view>
     </view>
         <view class="col">
         <view class="title">预约项目</view>
-        <view class="inp"><input type="text" value="{{project}}"/></view>
+        <view class="inp"><input type="text" value="{{project}}" disabled/></view>
     </view>
     <view class="col">
         <view class="title">注射部位</view>
@@ -32,11 +32,11 @@
     </view>
     <view class="col">
         <view class="title"></view>
-        <view class="inp"><input type="text" bindinput='handleInput' bindfocus='handlePosition' disabled="{{radioIsSelect}}" placeholder="请输入要注射部位" value='{{position}}'/></view>
+        <view class="inp"><input type="text" bindinput='handleInput' bindfocus='handlePosition' placeholder="请输入要注射部位" value='{{position}}'/></view>
     </view>
         <view class="col">
         <view class="title">注射剂量</view>
-        <view class="inp"><input type="text" placeholder='单位：ml' bindinput='handleDose'/></view>
+        <view class="inp"><input type="text" placeholder='单位/ml' bindinput='handleDose'/></view>
     </view>
         <view class="col">
         <view class="title">注射时间</view>
@@ -50,13 +50,15 @@
     </view>
 </view>
 
+
+<!-- 弹出框 -->
 <view class="wrap {{isActive?'demo2':'demo3'}}">
     <view class="error" bindtap="handleError">
         <image src='../../img/errorImg.png' mode='widthFix'/>
     </view>
     <view class="title">注射失败原因:</view>
     <textarea class="container" value='{{textareaInput}}' bindinput='handleInputFail' placeholder="请将字数控制在50字以内"></textarea>
-    
+
     <view class="demo">
         <view class="demo_fail" bindtap="handleFailText">取消</view>
         <view class="demo_success" bindtap="handleSuccessCancel">确认</view>

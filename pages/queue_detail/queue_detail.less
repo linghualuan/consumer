@@ -9,7 +9,7 @@ page{
             height:60rpx;
             background-color: #6dbbbc;
             position: absolute;
-            top:450rpx;
+            top:400rpx;
             left:-30rpx;
             z-index:3;
             border-radius: 50%;
@@ -19,7 +19,7 @@ page{
             height:60rpx;
             background-color: #6dbbbc;
             position: absolute;
-            top:450rpx;
+            top:400rpx;
             right:-30rpx;
             z-index:3;
             border-radius: 50%;
@@ -43,70 +43,45 @@ page{
         .con_top{
             background-color: white;
             border-bottom:#6dbbbc 5rpx solid;
-            text-align: center;
             font-size: 35rpx;
             display: flex;
-            height:400rpx;
-            justify-content: center;
             flex-direction: column;
             padding-top:20rpx;
-            border-top-left-radius: 20rpx;
-            border-top-right-radius: 20rpx;
+            border-radius: 20rpx;
             position: relative;
+            padding-bottom: 40rpx;
             .top_project{
                 flex:1;
                 font-size: 50rpx;
                 font-weight: 600;
+                text-align: center;
             }
             .top_date{
                 flex:1;
                 color:#F26D07;
+                display: flex;
+                height:80rpx;
+                .item_title{
+                    flex:1;
+                    line-height: 80rpx;
+                    text-align: right;
+                    padding-right: 40rpx;
+                }
                 text{
+                    flex:1;
+                    line-height: 80rpx;
                     font-size: 50rpx;
                 }
             }
-            .top_time{
-                flex:1;
-                color:#F26D07;
-                text{
-                    font-size: 50rpx;
-                }
-            }
-            .top_queue{
-                flex:1;
-                color:#F26D07;
-                text{
-                    font-size: 50rpx;
-                }
-            }
-            .top_number{
-                flex:1;
-                color:#F26D07;
-                text{
-                    font-size: 50rpx;
-                }
-            }
-        }
-        .con_bottom{
-            height:250rpx;
-            background-color: white;
-            padding:10rpx 50rpx;
-            font-size: 35rpx;
-            border-bottom-left-radius: 20rpx;
-            border-bottom-right-radius: 20rpx;
-            .btm{
-                height:60rpx;
-                margin:20rpx 0;
-            }
-            .btm_btn{
-                    width:290rpx;
-                    background-color: #eee;
-                    text-align: center;
-                    height:70rpx;
-                    line-height: 70rpx;
-                    font-size: 35rpx;
-                    border-radius: 35rpx;
-                    margin:0 auto;
+            .btn{
+                width:200rpx;
+                height:70rpx;
+                text-align: center;
+                line-height: 70rpx;
+                color:white;
+                border-radius: 35rpx;
+                background-color: #66CCCC;
+                margin:40rpx auto;
             }
         }
     }

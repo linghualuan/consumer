@@ -4,7 +4,8 @@ Page({
         medicalCard:'', //患者就诊卡号
         name:'',    //患者姓名
         sex:'', //患者性别
-        tel:''  //患者电话
+        tel:'',  //患者电话
+        sexSelect:['男','女']
     },
 
     handleSubmit(){
@@ -77,6 +78,18 @@ Page({
         }
     },
 
+    handlePendSex(e){
+        let sex;
+        let index = e.detail.value;
+        if(index === '0'){
+            sex = '男'
+        }else{
+            sex = '女'
+        }
+        this.setData({sex})
+        console.log(this.data.sex);
+    },
+
     //获取就诊卡号
     handleMedicalCard(e){
         let medicalCard = e.detail.value;
@@ -96,13 +109,13 @@ Page({
     },
 
     //获取患者性别
-    handleSex(e){
-        let sex = e.detail.value;
-        this.setData({
-            sex
-        })
-        wx.setStorageSync('sex', this.data.sex);
-    },
+    // handleSex(e){
+    //     let sex = e.detail.value;
+    //     this.setData({
+    //         sex
+    //     })
+    //     wx.setStorageSync('sex', this.data.sex);
+    // },
 
     //获取患者电话
     handleTel(e){
@@ -116,7 +129,7 @@ Page({
   // onShow(){
     //     //页面左上角小房子消失
     //     wx.hideHomeButton()
-    // }  
+    // }
 })
 
 

@@ -25,6 +25,12 @@ page .wrap .title text {
 }
 page .wrap .date {
   background-color: white;
+  padding-bottom: 20rpx;
+}
+page .wrap .date .orderProject {
+  text-align: center;
+  font-size: 38rpx;
+  font-weight: 600;
 }
 page .wrap .date .date_title {
   padding: 10rpx;

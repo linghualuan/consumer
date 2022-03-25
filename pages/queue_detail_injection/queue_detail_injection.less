@@ -8,7 +8,7 @@ page{
             height:60rpx;
             background-color: #6dbbbc;
             position: absolute;
-            top:450rpx;
+            top:320rpx;
             left:-30rpx;
             z-index:3;
             border-radius: 50%;
@@ -18,7 +18,7 @@ page{
             height:60rpx;
             background-color: #6dbbbc;
             position: absolute;
-            top:450rpx;
+            top:320rpx;
             right:-30rpx;
             z-index:3;
             border-radius: 50%;
@@ -42,47 +42,34 @@ page{
         .con_top{
             background-color: white;
             border-bottom:#6dbbbc 5rpx solid;
-            text-align: center;
             font-size: 35rpx;
             display: flex;
-            height:400rpx;
-            justify-content: center;
+            height:540rpx;
             flex-direction: column;
-            padding-top:20rpx;
-            border-top-left-radius: 20rpx;
-            border-top-right-radius: 20rpx;
+            padding:20rpx 0;
+            border-radius: 20rpx;
             position: relative;
             .top_project{
                 flex:1;
                 font-size: 50rpx;
                 font-weight: 600;
+                text-align: center;
             }
             .top_date{
                 flex:1;
                 color:#F26D07;
-                text{
-                    font-size: 50rpx;
+                height:70rpx;
+                display: flex;
+                .item_title{
+                    flex:1;
+                    line-height: 70rpx;
+                    text-align: right;
+                    padding-right: 30rpx;
                 }
-            }
-            .top_time{
-                flex:1;
-                color:#F26D07;
                 text{
-                    font-size: 50rpx;
-                }
-            }
-            .top_queue{
-                flex:1;
-                color:#F26D07;
-                text{
-                    font-size: 50rpx;
-                }
-            }
-            .top_number{
-                flex:1;
-                color:#F26D07;
-                text{
-                    font-size: 50rpx;
+                    flex:1;
+                    font-size: 44rpx;
+                    line-height: 70rpx;
                 }
             }
         }

@@ -11,12 +11,14 @@ page .top_Title .img {
   padding: 10rpx;
 }
 page .top_Title .img image {
-  width: 50%;
+  width: 70%;
   text-align: center;
   margin-left: 30rpx;
 }
 page .top_Title .title {
   flex: 6;
+  font-size: 36rpx;
+  padding-left: 30rpx;
 }
 page .item {
   width: 94%;

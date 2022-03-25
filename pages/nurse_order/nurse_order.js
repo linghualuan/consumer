@@ -82,14 +82,16 @@ Page({
         )
     },
 
-    onLoad(){
-        //页面刚加载时获取预约申请用户的数据
-        this.handleUserInfo();
-    },
+    // onLoad(){
+    //     //页面刚加载时获取预约申请用户的数据
+    //     this.handleUserInfo();
+    // },
 
      onShow(){
         //页面左上角小房子消失
         wx.hideHomeButton()
+
+        this.handleUserInfo()
     },
 
     onPullDownRefresh(){

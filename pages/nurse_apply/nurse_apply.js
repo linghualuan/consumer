@@ -222,8 +222,7 @@ Page({
 
     //用户点击确认预约失败
     handleSuccess(){
-        let demo1 = false;
-        this.setData({ demo1 });
+        
         let id = this.QueryParams.id;
         let relId = wx.getStorageSync('relId');
         let a = this.data.remark;
@@ -240,29 +239,39 @@ Page({
         }
         let remark = textareaInput || remarkDemo;
         console.log(remark);
-        wx.showModal({
-            title: '提示',
-            content: '是否未通过预约',
-            success (res) {
-              if (res.confirm) {
-                request({url:'/infoCommit/change',data:{id,relId,remark,status:2},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
-                .then(
-                    res => {
-                        wx.showToast({
-                            title: '操作成功'
-                        })
-                        setTimeout(()=>{
-                            wx.reLaunch({
-                            url: '../nurse_order/nurse_order',
+        if(remark){
+            let that = this;
+            wx.showModal({
+                title: '提示',
+                content: '是否未通过预约',
+                success (res) {
+                  if (res.confirm) {
+                    request({url:'/infoCommit/change',data:{id,relId,remark,status:2},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
+                    .then(
+                        res => {
+                            wx.showToast({
+                                title: '操作成功'
                             })
-                        },1000)
-                    }
-                )
-              } else if(res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-        })
+                            let demo1 = false;
+                            that.setData({ demo1 });
+                            setTimeout(()=>{
+                                wx.reLaunch({
+                                url: '../nurse_order/nurse_order',
+                                })
+                            },1000)
+                        }
+                    )
+                  } else if(res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+            })
+        }else{
+            wx.showToast({
+                title:'请输入失败原因',
+                icon:'none'
+            })
+        }
     },
 
 

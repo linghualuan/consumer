@@ -11,12 +11,35 @@ Page({
         index:'',
         date:'',
         isActive:false,   //当为false时不显示弹框
-        textareaInput:''  //失败原因
+        textareaInput:'',  //失败原因
+        nowTime:''
     },
 
     QueryParams:{
         id:'',
         relId:''
+    },
+
+    handleNowTime(){
+      wx.showModal({
+        title:'是否选择当前时间',
+        success:res => {
+          if(res.confirm){
+            let time = new Date();
+            let year = time.getFullYear();
+            let month = time.getMonth() + 1;
+            let day = time.getDate();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let second = time.getSeconds();
+            let nowTime = `${year}-${month}-${day}  ${hour}:${minute}:${second}`
+            this.setData({nowTime})
+            console.log(this.data.nowTime);
+          }else{
+            console.log('用户点击取消');
+          }
+        }
+      })
     },
 
     //显示用户信息
@@ -83,7 +106,7 @@ Page({
                           title:'检查成功'
                         })
                         setTimeout(()=>{
-                            wx.reLaunch({
+                            wx.navigateBack({
                                 url: '../technician/technician',
                               })
                         },1000)
@@ -122,17 +145,22 @@ Page({
               res => {
                   console.log(res);
                   wx.showToast({
-                      icon:'error',
-                    title:'检查失败'
+                    title:'操作成功',
+                    icon:'none'
                   })
                   setTimeout(()=>{
-                      wx.reLaunch({
+                      wx.navigateBack({
                           url: '../technician/technician',
                         })
                   },1000)
               }
           )
         }
+    },
+
+    //呼叫患者
+    handleCallUser(){
+      
     },
 
     onLoad(option){

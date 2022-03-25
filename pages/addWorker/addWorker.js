@@ -9,7 +9,8 @@ Page({
         password:'',    //密码
         sex:'',     //性别
         tel:'',     //电话
-        workName:''     //身份
+        workName:'',     //身份
+        sexSelect:['男','女']
     },
 
     handleSelectChange(e){
@@ -32,7 +33,12 @@ Page({
     },
 
     handleSex(e){
-        let sex = e.detail.value;
+        let sex;
+        if(e.detail.value === '0'){
+            sex = '男'
+        }else{
+            sex = '女'
+        }
         this.setData({sex})
     },
 

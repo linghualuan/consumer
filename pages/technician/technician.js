@@ -6,7 +6,7 @@ Page({
             { id:2, value:"检查成功", isActive:false },
             { id:3, value:"检查失败", isActive:false }
         ],
-        
+
         userInfo:[],
 
         userInfoPassed:[],
@@ -81,13 +81,12 @@ Page({
         )
     },
 
-    onLoad(){
-        //刚加载页面时加载检查列表内容
-        this.handleUserInfoUnpassed();
-    },
-
     onShow(){
+        
+        //左上角小房子消失
         wx.hideHomeButton()
+
+        this.handleUserInfoUnpassed();
     },
 
     onPullDownRefresh(){

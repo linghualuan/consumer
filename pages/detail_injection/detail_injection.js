@@ -51,6 +51,7 @@ Page({
       this.setData({ isActive, textareaInput })
     },
 
+    //用户点击单选按钮
     checkedTap(e){
       let item = this.data.item;
       for(let i = 0 ; i<item.length ; i++){
@@ -65,14 +66,11 @@ Page({
         }
       }
       this.setData({item})
+
       for(let i=0 ; i<item.length ; i++){
         if(item[i].checked === true){
           let position = '';
-          let radioIsSelect = true
-          this.setData({position,radioIsSelect})
-        }else{
-          let radioIsSelect = false
-          this.setData({radioIsSelect})
+          this.setData({position})
         }
       }
     },
@@ -194,6 +192,7 @@ Page({
         }
       }
       let position = positionDemo?positionDemo:itemPosition;
+      console.log(position);
       if(date && position && dose){
         wx.showModal({
           title: '提示',
@@ -207,7 +206,7 @@ Page({
                         title:'注射成功'
                       })
                       setTimeout(()=>{
-                          wx.reLaunch({
+                          wx.navigateBack({
                             url: '../nurse_injection/nurse_injection',
                           })
                       },1000)

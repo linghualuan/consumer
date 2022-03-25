@@ -19,7 +19,7 @@
         </view>
         <view class="top_item">
             <view class='item_title'>
-                检查日期 :
+                预约日期 :
             </view>
             <view class='item_content'>
                 {{orderDate}}
@@ -27,7 +27,7 @@
         </view>
         <view class="top_item">
             <view class='item_title'>
-                检查时间 :
+                预约时段 :
             </view>
             <view class='item_content'>
                 {{orderTime}}

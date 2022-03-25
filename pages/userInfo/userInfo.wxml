@@ -4,15 +4,25 @@
     </view>
     <view class='wrap'>
         <view class="col">
+            <view class='title'>就诊卡号</view>
             <view class="inp"><input type="text" name="medicalCard" value="{{medicalCard}}" bindinput="handleMedicalCard" placeholder="就诊卡号"/></view>
         </view>
         <view class="col">
+            <view class='title'>姓名</view>
             <view class="inp"><input type="text" name="name" value="{{name}}" bindinput="handleName" placeholder="姓名"/></view>
         </view>
         <view class="col">
-            <view class="inp"><input type="text" name="sex" value="{{sex}}" bindinput="handleSex" placeholder="性别"/></view>
+            <view class='title'>性别</view>
+            <view class="inp">
+                <picker mode="selector" value="{{sex}}" range="{{sexSelect}}" bindchange="handlePendSex">
+                    <view class="picker">
+                        <view class='input' style='{{sex ? "color:black" : "color:#888"}}'>{{sex ? sex : '性别'}}</view>
+                    </view>
+                </picker>
+            </view>
         </view>
         <view class="col">
+            <view class='title'>手机号码</view>
             <view class="inp"><input type="text" name="tel" value="{{tel}}" bindinput="handleTel" placeholder="手机号"/></view>
         </view>
         <view class="btn" bindtap="handleSubmit">

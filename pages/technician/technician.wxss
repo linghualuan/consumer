@@ -46,6 +46,7 @@ page .item navigator .top .top_title {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-left: 30rpx;
 }
 page .item navigator .top .top_title .title_address {
   flex: 1;
