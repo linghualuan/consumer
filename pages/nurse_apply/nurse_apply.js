@@ -141,12 +141,14 @@ Page({
     handleShowUserInfo(){
         let medicalCard = this.QueryParams.medicalCard;
         let id = this.QueryParams.id;
-        request({url:'/infoCommit/orderDetail',data:{medicalCard,id},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
+        request({
+            url:'/infoCommit/orderDetail',
+            data:{medicalCard,id},
+            header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}
+        })
         .then(
             res => {
-                console.log(res);
                 let a = res.data.data;
-                let age = a.age;
                 let medicalCard = a.medicalCard;
                 let name = a.name;
                 let orderDate = a.orderDate;
@@ -155,7 +157,16 @@ Page({
                 let relId = a.relId;
                 let sex = a.sex;
                 let tel = a.tel;
-                this.setData({ age, medicalCard, name, orderDate, orderProject, orderTime, relId, sex, tel })
+                this.setData({ 
+                    medicalCard, 
+                    name, 
+                    orderDate, 
+                    orderProject, 
+                    orderTime, 
+                    relId, 
+                    sex, 
+                    tel 
+                })
             }
         )
     },
@@ -178,7 +189,7 @@ Page({
                         })
                         setTimeout(()=>{
                             wx.reLaunch({
-                            url: '../nurse_order/nurse_order',
+                                url: '../nurse_order/nurse_order',
                             })
                         },1000)
                     }
@@ -202,13 +213,12 @@ Page({
                     request({url:'/infoCommit/change',data:{id,relId,status:-1},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
                     .then(
                         res => {
-                            console.log(res);
                             wx.showToast({
                                 title: '操作成功'
                             })
                             setTimeout(()=>{
                                 wx.reLaunch({
-                                url: '../nurse_order/nurse_order',
+                                    url: '../nurse_order/nurse_order',
                                 })
                             },1000)
                         }
@@ -222,12 +232,11 @@ Page({
 
     //用户点击确认预约失败
     handleSuccess(){
-        
-        let id = this.QueryParams.id;
         let relId = wx.getStorageSync('relId');
+        let textareaInput = this.data.textareaInput;
+        let id = this.QueryParams.id;
         let a = this.data.remark;
         let remarkDemo = ''
-        let textareaInput = this.data.textareaInput;
         for(let i=0 ; i<a.length ; i++){
             if(a[i]){
                 if( i !==a.length - 1 ){
@@ -238,7 +247,6 @@ Page({
             }
         }
         let remark = textareaInput || remarkDemo;
-        console.log(remark);
         if(remark){
             let that = this;
             wx.showModal({
@@ -246,7 +254,11 @@ Page({
                 content: '是否未通过预约',
                 success (res) {
                   if (res.confirm) {
-                    request({url:'/infoCommit/change',data:{id,relId,remark,status:2},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
+                    request({
+                        url:'/infoCommit/change',
+                        data:{id,relId,remark,status:2},
+                        header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}
+                    })
                     .then(
                         res => {
                             wx.showToast({
@@ -277,7 +289,6 @@ Page({
 
     onLoad(option){
 
-        console.log(option);
         this.QueryParams.medicalCard = option.medicalCard;
         this.QueryParams.id = option.id;
 

@@ -12,7 +12,8 @@ Page({
         dose:'', //注射计量
         nowTime:'',
         position:'',
-        demo:''
+        demo:'',
+        errorMsg:''
     },
 
     QueryParams:{
@@ -38,7 +39,22 @@ Page({
                 let dose = res.data.data.dose;
                 let position = res.data.data.position;
                 let scanNumber = res.data.data.scanNumber;
-                this.setData({scanNumber, date, turnTime, rank, injectNumber, cutDownTime, project,injectState,dose,position})
+                let errorMsg = res.data.data.errorMsg;
+                let finishTime = res.data.data.finishTime;
+                this.setData({
+                    scanNumber, 
+                    date, 
+                    turnTime, 
+                    rank, 
+                    injectNumber, 
+                    cutDownTime, 
+                    project,
+                    injectState,
+                    dose,
+                    position,
+                    errorMsg,
+                    finishTime
+                })
             }
         )
     },

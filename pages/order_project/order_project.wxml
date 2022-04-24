@@ -9,7 +9,7 @@
 <view class="content">
    <view wx:if="{{project.length > 0}}">
         <view class="item" wx:for="{{project}}" wx:key="projectId">
-            <navigator open-type="navigate" url="../date/date?orderProject={{item.orderProject}}">
+            <navigator open-type="navigate" url="../date/date?orderProject={{item.orderProject}}&note={{item.note}}">
                 <view class="left">
                     <view class="left_top">
                         <view class="item_img">

@@ -33,8 +33,6 @@ Page({
         request({url:'/serve/check/injectionList',data:{relId},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
         .then(
             res => {
-                console.log('注射叫号')
-                console.log(res)
                 let records = res.data.data.records;
                 let userInfoInjection = [];
                 for(let i =0;i<records.length;i++){
@@ -52,8 +50,6 @@ Page({
         request({url:'/serve/check/scanList',data:{relId},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
         .then(
             res => {
-                console.log('检查叫号');
-                console.log(res);
                 let records = res.data.data.records;
                 let userInfoInspect = [];
                 for(let i =0;i<records.length;i++){

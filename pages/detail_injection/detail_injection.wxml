@@ -36,7 +36,7 @@
     </view>
         <view class="col">
         <view class="title">注射剂量</view>
-        <view class="inp"><input type="text" placeholder='单位/ml' bindinput='handleDose'/></view>
+        <view class="inp"><input type="text" placeholder='单位/mCi' bindinput='handleDose'/></view>
     </view>
         <view class="col">
         <view class="title">注射时间</view>

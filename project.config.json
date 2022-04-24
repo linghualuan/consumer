@@ -35,8 +35,7 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "enableEngineNative": false,
-        "useIsolateContext": true,
+        "useIsolateContext": false,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
@@ -44,10 +43,11 @@
         "disableUseStrict": false,
         "minifyWXML": true,
         "showES6CompileOption": false,
-        "useCompilerPlugins": false
+        "useCompilerPlugins": false,
+        "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.21.4",
+    "libVersion": "2.20.3",
     "appid": "wx772f0037dccb7277",
     "projectname": "%E6%8E%92%E9%98%9F%E6%8C%82%E5%8F%B7",
     "debugOptions": {

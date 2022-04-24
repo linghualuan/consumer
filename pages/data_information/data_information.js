@@ -7,7 +7,7 @@ Page({
         show2: false,
         start_date: '',
         end_date: '',
-        minDate:new Date(2022,2,10).getTime(),
+        minDate:new Date(2022,3,10).getTime(),
         maxDate:new Date().getTime()
     },
 

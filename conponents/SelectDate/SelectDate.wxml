@@ -4,10 +4,13 @@
             {{info}}
         </view>
         <view class="select_img">
-            <view class='down' style="{{isSelect?'transform:rotateZ(180deg)':''}}"></view>
+            <view class='down' style="{{isSelect&&isSelectData?'transform:rotateZ(180deg)':''}}"></view>
         </view>
     </view>
-    <view class="content" style="{{isSelect?'height:'+52*lengthSelect.length+'rpx':'height:0'}}">
+    <view 
+        class="content" 
+        style="{{isSelect?'height:'+52*lengthSelect.length+'rpx':'height:0'}}"
+    >
         <view class="item" bindtap="handleSelect" wx:for="{{select}}" wx:key="*this" data-index="{{index}}">{{select ? item : ''}}</view>
     </view>
 </view>

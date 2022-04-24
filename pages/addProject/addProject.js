@@ -44,14 +44,16 @@ Page({
         let orderProject = this.data.orderProject;
         let pendCheck = this.data.pendCheck;
         let pendWait = this.data.pendWait;
-        console.log(orderProject);
-        if(!orderPeople || !orderProject || !pendCheck || !pendWait){
+        if(!orderPeople || !orderProject || !String(pendCheck) || !String(pendWait)){
             wx.showToast({
                 title:'请输入完整信息',
                 icon:'none'
             })
         }else{
-            request({url:'/superRoot/project/addNewProject',data:{note,orderPeople,orderProject,pendCheck,pendWait}})
+            request({
+                url:'/superRoot/project/addNewProject',
+                data:{note,orderPeople,orderProject,pendCheck,pendWait}
+            })
             .then(
                 res => {
                     console.log(res);
@@ -60,11 +62,18 @@ Page({
                             title: '添加项目成功',
                             icon: 'none',
                         });
-                        setTimeout(() => {
-                            wx.navigateBack({
-                              url: '../super_index/super_index',
-                            })
-                        },1000)
+                        this.setData({
+                            note:'',
+                            orderPeople:'',
+                            orderProject:'',
+                            pendCheck:'',
+                            pendWait:''
+                        })
+                        // setTimeout(() => {
+                        //     wx.navigateBack({
+                        //       url: '../super_index/super_index',
+                        //     })
+                        // },1000)
                     }else{
                         wx.showToast({
                             title: '添加项目失败',
@@ -75,5 +84,4 @@ Page({
             )
         }
     }
-
 })

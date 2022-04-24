@@ -1,13 +1,12 @@
 {
     "pages": [
-        "pages/users/users",
+        "pages/index/index",
+        "pages/userInfo/userInfo",
         "pages/user_authorization/user_authorization",
         "pages/user_instructions/user_instructions",
-        "pages/index/index",
         "pages/order_project/order_project",
         "pages/order_mine/order_mine",
         "pages/report/report",
-        "pages/userInfo/userInfo",
         "pages/number_mine/number_mine",
         "pages/queue_detail/queue_detail",
         "pages/technician/technician",

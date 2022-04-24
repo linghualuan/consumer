@@ -22,38 +22,37 @@ Page({
     handleSubmit(){
         let jobNum = this.data.jobNum;
         let password = this.data.password;
+        let token = wx.getStorageSync('token')
         if(!jobNum || !password){
             wx.showToast({
               title: '账号或密码不能为空',
               icon:'none'
             })
         }else{
-            wx.getUserProfile({
-                desc:"小程序测试",
-                success:(res) => {
+            request({
+                url:'/login/super/up',
+                data:{jobNum:jobNum,password:password,token},method:'post',header: {"Content-Type":"application/x-www-form-urlencoded"}
+            })
+            .then(
+                res => {
+                    let msg = res.data.msg;
+                    if(res.data.code === 1){
+                        let number = res.data.data.medicalCard;
+                        let relId = res.data.data.relId;
+                        let medicalCard = res.data.data.medicalCard;
+                        wx.setStorageSync('relId',relId);
+                        wx.setStorageSync('medicalCard',medicalCard);
 
-                    //-------------------------------------------
-                    console.log(res);
-                    const userInfo = res.userInfo;
-                    this.setData({ userInfo})
-                    //把微信信息保存到本地
-                    wx.setStorageSync("userInfo", userInfo);
-                    //------------------------------------------
-                    let token = wx.getStorageSync('token')
-                    request({url:'/login/super/up',data:{jobNum:jobNum,password:password, token},method:'post',header: {"Content-Type":"application/x-www-form-urlencoded"}})
-                    .then(
-                        res => {
-                            console.log(res);
-                            if(res.data.code === 1){
-                                let relId = res.data.data.relId;
-                                let medicalCard = res.data.data.medicalCard;
-                                wx.setStorageSync('relId',relId);
-                                wx.setStorageSync('medicalCard',medicalCard);
-                                wx.showToast({
-                                    title: '登录成功',
-                                    icon:'none'
-                                })
-                                let number = res.data.data.medicalCard;
+                        wx.getUserProfile({
+                            desc:"小程序测试",
+                            success:(res) => {
+                                //-------------------------------------------
+                                console.log(res);
+                                const userInfo = res.userInfo;
+                                this.setData({ userInfo})
+                                //把微信信息保存到本地
+                                wx.setStorageSync("userInfo", userInfo);
+                                //------------------------------------------
                                 if(number === 's10001'){
                                     setTimeout(() => {
                                         wx.reLaunch({
@@ -79,49 +78,83 @@ Page({
                                         })
                                     },1000)
                                 }
-                            }else{
-                                wx.showToast({
-                                    title: '请检查账号或者密码是否输入正确',
-                                    icon:'none'
+                                    },
+                                    fail:(res) => {
+                                        console.log("用户拒绝授权");
+                                    }
                                 })
-                            }
-                        }
-                    )
-
-
-                    // //判断是否存在用户接口
-                    // wx.request({
-                    //     url: 'http://localhost:8881/serve/relation/checkInfo',
-                    //     header: { 'content-type':'application/json', 'Authorization':'Bearer ' + wx.getStorageSync('token') },
-                    //     success: (res)=>{
-                    //         console.log(res);
-
-                    //         //若后台存在账号
-                    //         if(res.data.data){
-                    //             wx.setStorageSync('medicalCard',res.data.data.medicalCard);
-                    //             wx.setStorageSync('name',res.data.data.name);
-                    //             wx.setStorageSync('sex',res.data.data.sex);
-                    //             wx.setStorageSync('tel',res.data.data.tel);
-                    //             wx.setStorageSync('black',res.data.data.black);
-                    //             wx.setStorageSync('defaults',res.data.data.defaults);
-                    //             wx.setStorageSync('inspectId',res.data.data.inspectId);
-                    //             wx.setStorageSync('relId',res.data.data.relId);
-                    //             wx.setStorageSync('relationship',res.data.data.relationship);
-                    //             wx.setStorageSync('updateTime',res.data.data.updateTime);
-                    //             wx.reLaunch({
-                    //                 url:'../index/index'
-                    //             })
-                    //         }else{
-
-                    //             //若后台没有账号
-                    //         }
-                    //     }
-                    // });
-                },
-                fail:(res) => {
-                    console.log("用户拒绝授权");
+                        
+                    }else{
+                        wx.showToast({
+                            title: msg,
+                            icon:'none'
+                        })
+                    }
                 }
-            })
+            )
         }
+    },
+
+    //判断是否存在用户信息
+    handleSuper() {
+        if(wx.getStorageSync('token')) {
+            request({url:'/login/checkAdmin',data:{token:wx.getStorageSync('token')}})
+            .then(
+                res => {
+                    console.log(res)
+                    if(res.data.data){
+                        wx.setStorageSync('medicalCard',res.data.data.medicalCard);
+                        wx.setStorageSync('name',res.data.data.name);
+                        wx.setStorageSync('sex',res.data.data.sex);
+                        wx.setStorageSync('tel',res.data.data.tel);
+                        wx.setStorageSync('relId',res.data.data.relId);
+                        let medicalCard = res.data.data.medicalCard;
+                        this.localCheck(medicalCard);
+                    }else{
+                        wx.navigateTo({
+                            url: '../super_user/super_user',
+                        })
+                    }
+                }
+        )}
+    },
+
+      //本地身份检查方法
+      localCheck(number) {
+        if(number === 's10001'){ //如果本地信息为超级管理员则跳转到超级管理员
+        setTimeout(() => {
+            wx.reLaunch({
+                url:'/pages/super_index/super_index'
+            })
+        },0)
+        }else if(number === 'n10002'){ //如果本地信息为预约护士则跳转到预约护士
+            setTimeout(() => {
+                wx.reLaunch({
+                    url: '/pages/nurse_order/nurse_order',
+                })
+            },0)
+        }else if(number === 'n10003'){ //如果本地信息为注射护士则跳转到注射护士
+            setTimeout(() => {
+                wx.reLaunch({
+                    url: '/pages/nurse_injection/nurse_injection',
+                })
+            },0)
+        }else if(number === 't10004'){ //如果本地信息为采集技师则跳转到采集技师
+            setTimeout(() => {
+                wx.reLaunch({
+                    url: '/pages/technician/technician',
+                })
+            },0)
+        }
+    },
+
+
+    onShow() {
+        //页面左上角小房子消失
+        wx.hideHomeButton()
+    },
+
+    onLoad() {
+        this.handleSuper()
     }
 })

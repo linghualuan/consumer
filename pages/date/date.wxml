@@ -1,7 +1,7 @@
 <view class="wrap">
     <view class="title">
         选择预约日期(
-        <text>*绿色背景为可预约日期</text>)
+        <text>*点击绿色背景可预约</text>)
     </view>
     <view class="date">
         <view class='orderProject'>
@@ -34,7 +34,11 @@
             wx:for="{{day}}"
             wx:key="*this"
             >
-                <view class="day_item {{dayTF[index] ? (notSelect[index] ? 'def' : 'abc') : ''}}" data-index="{{index}}" style="{{backgroundColor[index]&&dayTF[index] ? 'background-color:#ffe32e;color:white;':''}}" bindtap="handleSelectDate">
+                <view 
+                    class="day_item {{dayTF[index] ? (notSelect[index] ? 'def' : 'abc') : ''}}" data-index="{{index}}" 
+                    style="{{backgroundColor[index]&&dayTF[index] ? 'background-color:#ffe32e;color:white;':''}}" 
+                    bindtap="handleSelectDate"
+                >
                     <view class='item_num'>{{item}}</view>
                     <view class='item_allNumber'>{{dayTF[index] ? allNumber[index] : ''}}人</view>
                 </view>
@@ -47,7 +51,14 @@
             <SelectDate select="{{types}}" bindselectChange="handleSelectChange"></SelectDate>
         </view>
     </view>
+    <view class='announcement'>
+        <view class='announcement_title'>
+            <span style='color:red;'>*不可预约当天，最早为第二天</span>
+        </view>
+        <view class='announcement_note'>注意事项：<span>{{note}}</span></view>
+    </view>
     <view class="submit" bindtap="handleSubmit">
         <text >我要预约</text>
     </view>
 </view>
+

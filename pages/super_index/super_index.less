@@ -77,47 +77,96 @@ page{
         top:30vw;
         left:10vw;
         width:80vw;
-        height:70vw;
+        height:550rpx;
         background-color: white;
         border-radius: 10rpx;
         .codeHeader{
             height:10vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
             .code_title{
-                flex:5;
+                margin-top:20rpx;
+                font-size: 40rpx;
                 text-align: center;
             }
             .code_error{
-                flex:1;
-                text-align: center;
+                position: absolute;
+                right:10rpx;
+                top:0;
                 image{
-                    width:50%;
-                    height:50%;
+                    width:50rpx;
+                    height:50rpx;
                 }
             }
         }
-        .codeFooter{
-            background-color: #eee;
-            height:60vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-radius: 10rpx;
-            .content_img{
-                flex:5;
-                image{
-                    display: block;
-                    margin: 0 auto;
-                    margin-top: 5vw;
-                    width:50%;
-                    height:50%;
+        .selectUser {
+            .admin {
+                width: 80%;
+                height: 150rpx;
+                background-color: #3399CC;
+                display: flex;
+                align-items: center;
+                border-radius: 20rpx;
+                margin: 40rpx auto;
+                font-size: 40rpx;
+                .admin_title {
+                    flex: 3;
+                    color: white;
+                    text-align: center;
+                }
+                .admin_img {
+                    flex: 1;
+                    image {
+                        width: 50%;
+                    }
                 }
             }
-            .content_title{
-                flex:1;
+            .patient {
+                width: 80%;
+                height: 150rpx;
+                background-color: #99CCCC;
+                display: flex;
+                align-items: center;
+                border-radius: 20rpx;
+                margin: 40rpx auto;
+                .patient_title {
+                    flex: 3;
+                    color: white;
+                    text-align: center;
+                }
+                .patient_img {
+                    flex: 1;
+                    image {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+        .QRCode {
+            text-align: center;
+            .QRCode_admin {
+                width: 300rpx;
+                height: 300rpx;
+                margin: 0 auto;
+                image {
+                    width: 100%;
+                }
+            }
+            .QRCode_patient {
+                width: 300rpx;
+                height: 300rpx;
+                margin: 0 auto;
+                image {
+                    width: 100%;
+                }
+            }
+            .img_btn {
+                width: 200rpx;
+                height: 80rpx;
+                background-color: #66CCFF;
+                margin: 30rpx auto;
+                line-height: 80rpx;
                 text-align: center;
+                border-radius: 20rpx;
             }
         }
     }

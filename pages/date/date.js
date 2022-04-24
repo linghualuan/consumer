@@ -5,6 +5,7 @@ Page({
     // 日期：2022-03-15
     // 时间段：06:00-08:00
     data: {
+        note: '',   //注意事项
         month:'',   //获取年份
         year:'',    //获取月份
         day:[], //每个月的天数
@@ -22,7 +23,7 @@ Page({
         backgroundColor:[],     //点击可预约日期变色
         allNumber:[],    //绿色背景下的可预约人数
         notSelect:[],
-        orderProject:''
+        orderProject:'',
     },
 
     QueryParams:{
@@ -36,9 +37,7 @@ Page({
         let selectType = this.data.selectType;
         selectType = types[index].slice(0,11);
         this.setData({ selectType })
-        console.log(this.data.selectType);
     },
-
     //月份增加
     handleMouthSum(){
         let month = parseInt(this.data.month);
@@ -158,11 +157,19 @@ Page({
         let day = this.data.day;
         let month = String(this.data.month);
         let year = String(this.data.year);
-        let dayTF = new Array(day.length);      //把可选择的日期对应的下标定为true。例如：本月12号可以预约，则把下标为11的项赋值为true
-        let allNumber = new Array(day.length);      //如果可预约日期为true,则把可预约日期的可预约人数赋值给allNumber对应的下标
+        //把可选择的日期对应的下标定为true。例如：本月12号可以预 约，则把下标为11的项赋值为true
+        let dayTF = new Array(day.length);
+        //如果可预约日期为true,则把可预约日期的可预约人数赋值给allNumber对应的下标 
+        let allNumber = new Array(day.length);      
         let orderProject = this.QueryParams.orderProject;
-        let notSelect = [];         //此数组里面的内容为布尔值，当日期已经过去或者可预约人数为0时，把值定为true，此时日期的背景为灰色
-        request({url:'/serve/order/getOrderDate',data:{orderProject},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
+
+        //此数组里面的内容为布尔值，当日期已经过去或者可预约人数为0时，把值定为true，此时日期的背景为灰色
+        let notSelect = [];         
+        request({
+            url:'/serve/order/getOrderDate',
+            data:{orderProject},
+            header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}
+        })
         .then(
             res => {
                 let a = res.data.data;
@@ -191,7 +198,7 @@ Page({
                 this.data.selectDate.forEach((v,i) => {
                     if(this.data.dayTF[i]){
                         if(nowMonth>=month && nowYear>=year){
-                            if(i<nowDay - 1){
+                            if(i<nowDay){
                                 notSelect[i] = true
                             }
                         }
@@ -238,7 +245,6 @@ Page({
                                 let a = res.data.data;
                                 let types = a.map(v => v.orderTime + '(' + v.allowNumber + ')')
                                 this.setData({ types })
-                                console.log(this.data.types);
                             }
                         })
                     }else if(year == nowYear && month == nowMonth && i + 1>=nowDay && parseInt(this.data.allNumber[i]) !== 0){
@@ -252,23 +258,19 @@ Page({
                                     orderId:selectDate[i].orderId
                                 },
                             success:res => {
-                                console.log(res);
                                 let a = res.data.data;
                                 let types = a.map(v => v.orderTime + '(' + v.allowNumber + ')')
                                 this.setData({ types })
-                                console.log(this.data.types);
                             }
                         })
                     }
                 }else{
                     backgroundColor[i] = false
-                    this.setData({selectType:'',types:[]})      //当点击非预约日期或背景为灰色的日期，下拉框中的日期赋值为空，
+                    this.setData({selectType:'',types:[]})      //当点击非预约日期或背景为灰色的  日期，下拉框中的日期赋值为空，
                                                                 //否则点击一个可预约并且有课预约人数不为0的日期后再点击空白日期或
                                                                 //灰色日期后下拉框中还会有残留的时间段
-                    console.log(this.data.types);
                 }
                 this.setData({backgroundColor})
-                // console.log(this.data.backgroundColor);
             }
         })
     },
@@ -276,64 +278,119 @@ Page({
     //提交预约
     handleSubmit(){
         let orderDate = this.data.orderDate;    //获取预约的日期
+        let orderTime = this.data.selectType;   //获取预约的时间段
+        if(!wx.getStorageSync('medicalCard')) { //判断本地是否有用户信息
+            console.log('285',this.data.isAlreadyLogin);
+            if(this.data.isAlreadyLogin) { //判断数据库是否有信息
+                if(orderTime&&orderDate){     //如果日期和时间不为空
+                    //预约消息判断及信息提交
+                    this.judgeOrderMessage();
+                    // this.submitConsumer()
+                }else{  //如果日期和时间段为空
+                    wx.showToast({
+                      title: '请选择要预约的日期',
+                      icon:'none'
+                    })
+                }
+                return;
+            }
+            wx.navigateTo({
+                url: '../userInfo/userInfo',
+            })
+            
+        }else { //如果本地没有信息
+            if(orderTime&&orderDate){     //如果日期和时间不为空
+                //预约消息判断及信息提交
+                this.judgeOrderMessage();
+            }else{  //如果日期和时间段为空
+                wx.showToast({
+                  title: '请选择要预约的日期',
+                  icon:'none'
+                })
+            }
+        }
+    },
+    //数据库信息判断
+    checkDistance() {
+        request({url:'/login/checkConsumer',data:{token:wx.getStorageSync('token')}})
+        .then(
+            res => {
+                console.log(res);
+                if(res.data.code === 1) {
+                    wx.setStorageSync('medicalCard', res.data.data.medicalCard)
+                    wx.setStorageSync('name', res.data.data.name)
+                    wx.setStorageSync('relId', res.data.data.relId)
+                    wx.setStorageSync('tel', res.data.data.tel)
+                    wx.setStorageSync('sex', res.data.data.sex)
+                }
+            }
+        )
+    },
+    //判断订阅消息及信息提交
+    judgeOrderMessage() {
+        let that = this
+        wx.requestSubscribeMessage({
+            tmplIds: [
+                'xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08','Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU',
+                'bu3pNgiYdt2NnuR476D6Qjpm97VbvatgF-50Yu5ZVMo'
+            ],
+            success (res) {
+                if(res['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08'] === 'accept' 
+                && res['Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'] === 'accept'
+                && res['bu3pNgiYdt2NnuR476D6Qjpm97VbvatgF-50Yu5ZVMo'] === 'accept'){
+                   //提交预约信息
+                    that.submitConsumer();
+                }else{
+                    wx.showToast({
+                        title: '请确认订阅后继续',
+                        icon:'none'
+                    })
+                }
+            },
+            fail:err => {
+                console.log(err);
+            }
+        })
+    },
+    //提交预约信息
+    submitConsumer() {
+        let orderDate = this.data.orderDate;    //获取预约的日期
         let orderProject = this.QueryParams.orderProject;   //获取预约的项目
         let orderTime = this.data.selectType;   //获取预约的时间段
         let relId = wx.getStorageSync('relId');     //获取用户的relId
         let medicalCard = wx.getStorageSync('medicalCard'); //获取用户的卡号
-        if(orderTime&&orderDate){       //如果日期和时间不为空
-            wx.requestSubscribeMessage({
-                tmplIds: ['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08','Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'],
-                success (res) {
-                    console.log(res);
-                    if(res['xKyH69hLBBxdywQXPtf-H5bbSHUL3Xjlmmv7Rc_vu08'] === 'accept' && res['Gj76q-6KsUhkGPrYfvslO2MbdMr_H-1QmkEiYnBNHnU'] === 'accept'){
-                        console.log('success');
-                        request({url:'/serve/order/orderProject',data:{medicalCard,orderDate,orderProject,orderTime,relId},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
-                        .then(
-                            res => {
-                                if(res.data.code === 1){
-                                    wx.showToast({
-                                        title:'预约成功',
-                                        icon:'success'
-                                    })
-                                    setTimeout(() => {
-                                        wx.navigateBack({
-                                            url: '../index/index',
-                                        })
-                                    },1000)
-                                }else{
-                                    let msg = res.data.msg;
-                                    wx.showToast({
-                                        title:msg,
-                                        icon:'none'
-                                    })
-                                    setTimeout(() => {
-                                        wx.navigateBack({
-                                            url: '../order_project/order_project',
-                                        })
-                                    },1000)
-                                }
-                            }
-                        )
-                    }else{
-                        wx.showToast({
-                        title: '请确认订阅后继续',
-                        icon:'none'
+        request({url:'/serve/order/orderProject',data:{medicalCard,orderDate,orderProject,orderTime,relId}})
+        .then(
+            res => {
+                if(res.data.code === 1){
+                    wx.showToast({
+                        title:'预约成功',
+                        icon:'success'
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack({
+                            url: '../index/index',
                         })
-                    }
-                },
-                fail:err => {
-                    console.log(err);
+                    },1000)
+                }else{
+                    let msg = res.data.msg;
+                    wx.showToast({
+                        title:msg,
+                        icon:'none'
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack({
+                            url: '../order_project/order_project',
+                        })
+                    },1000)
                 }
-            })
-        }else{  //如果日期和时间段为空
-            wx.showToast({
-              title: '请选择要预约的日期',
-              icon:'none'
-            })
-        }
+            }
+        )
     },
 
     onLoad(option){
+        this.QueryParams.note = option.note;
+        this.setData({note:option.note})
 
         //option为请求路径传进来的参数
         //把路径的参数赋值给QueryParams对象
@@ -347,6 +404,8 @@ Page({
 
         //日历表中开头的空格数
         this.judgeWeek();
+
+        this.checkDistance();
     },
 
     onShow(){

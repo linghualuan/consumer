@@ -8,7 +8,8 @@ Page({
         age:'',
         tel:'',
         project:'',
-        turnTime:''
+        turnTime:'',
+        finishTime:''
     },
 
     QueryParams:{
@@ -30,14 +31,23 @@ Page({
                 let project = data.project;
                 let turnTime = data.turnTime;
                 let errorMsg = data.errorMsg;
-                this.setData({ medicalCard, name, sex, age, tel, project, turnTime,errorMsg })
+                let finishTime = data.finishTime;
+                this.setData({
+                    medicalCard, 
+                    name, 
+                    sex, 
+                    age, 
+                    tel, 
+                    project, 
+                    turnTime,
+                    errorMsg,
+                    finishTime
+                })
             }
         )
     },
 
     onLoad(option){
-
-        console.log(option);
 
         this.QueryParams.id = option.id;
 

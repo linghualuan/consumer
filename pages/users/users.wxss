@@ -1,9 +1,29 @@
-.wrap {
-  display: flex;
-  margin-top: 20vw;
-  justify-content: space-around;
+page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
-.wrap .item {
+page .backgroundImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+page .backgroundImg image {
+  width: 100%;
+  height: 100%;
+}
+page .wrap {
+  position: relative;
+}
+page .wrap .container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20vw;
+}
+page .wrap .container .item {
   width: 40vw;
   height: 50vw;
   background-color: #66CCFF;
@@ -13,15 +33,15 @@
   box-shadow: 15rpx 15rpx 20rpx #ccc;
   border-radius: 10rpx;
 }
-.wrap .item .img {
+page .wrap .container .item .img {
   flex: 4;
   padding: 30rpx;
 }
-.wrap .item .img image {
+page .wrap .container .item .img image {
   width: 100%;
   height: 100%;
 }
-.wrap .item .title {
+page .wrap .container .item .title {
   flex: 1;
   text-align: center;
   font-size: 40rpx;

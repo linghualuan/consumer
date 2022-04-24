@@ -11,13 +11,25 @@ Component({
         isSelect:false,
         info:'请选择',  //选框显示的信息
         selectDate:'',   //用户选择的时间段
-        lengthSelect:''
+        lengthSelect:[],
+        isSelectData:false
     },
     methods: {
         //点击获取时间段长度
         handleLengthSelect(){
             let lengthSelect = this.properties.select;
-            this.setData({lengthSelect})
+            if(lengthSelect.length > 0){
+                this.setData({lengthSelect});
+                let isSelectData = true;
+                this.setData({isSelectData})
+            }else{
+                wx.showToast({
+                  title: '请选择日期',
+                  icon:'none'
+                })
+                let isSelectData = false
+                this.setData({isSelectData})
+            }
         },
 
         //若isSelect为true，则显示时下拉列表，否则不显示

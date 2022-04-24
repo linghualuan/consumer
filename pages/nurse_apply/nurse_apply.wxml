@@ -25,7 +25,9 @@
     </view>
     <view class="col">
         <view class="title">预约时间</view>
-        <view class="inp"><input type="text" value="{{orderTime}}" disabled/></view>
+        <view class="inp">
+            <input type="text" value="{{orderTime}}" disabled/>
+        </view>
     </view>
     <view class="btn1">
         <view bindtap="handleSubmitSuccess" class='btn'>预约成功</view>
@@ -46,7 +48,7 @@
         <view class="item" bindtap="handleDemo"  wx:key="*this" wx:for="{{info}}" data-index='{{index}}'>{{item}}</view>
     </view>
     <textarea class="container" disabled="{{textareaIsActive}}" bindinput='handleOthers' value='{{textareaInput}}' placeholder="{{textareaIsActive ? '' : '请将字数控制在50字以内'}}">
-        <view class='container_item' wx:for="{{remark}}">{{item ? item : ''}}</view>
+        <view class='container_item' wx:for="{{remark}}" wx:key="*this">{{item ? item : ''}}</view>
     </textarea>
     <view class="demo">
         <view class="demo_fail" bindtap="handleFail">取消</view>

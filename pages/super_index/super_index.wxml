@@ -73,21 +73,36 @@
         <p>4.“解除拉黑”可对已拉黑的患者名单进行管理。</p>
     </view>
 </view>
+
+
 <view wx:if="{{showQRcode}}" class='showQRcode'>
     <view class='codeHeader'>
-        <view class='code_title'>
-            生成小程序码
-        </view>
+        <view class='code_title'>{{selectListUser ? '生成小程序码' : adminQRCodeImg ? '管理端程序码' : '患者端程序码'}}</view>
         <view class='code_error' bindtap='handleShowQRcode'>
             <image src='/img/Super-Admin/error.png' mode='widthFix'/>
         </view>
     </view>
-    <view class='codeFooter'>
-        <view class='content_img'>
+    <view class='selectUser' wx:if="{{selectListUser}}">
+        <view class='admin' bindtap='handleSelectAdmin'>
+            <view class='admin_title'>管理端程序码</view>
+            <view class='admin_img'>
+                <image src='../../img/arrows_right.png' mode='widthFix'/>
+            </view>
+        </view>
+        <view class='patient' bindtap='handleSelectPatient'>
+            <view class='patient_title'>患者端程序码</view>
+            <view class='patient_img'>
+                <image src='../../img/arrows_right.png' mode='widthFix'/>
+            </view>
+        </view>
+    </view>
+    <view class='QRCode' wx:if="{{!selectListUser}}">
+        <view class='QRCode_admin' wx:if="{{adminQRCodeImg}}">
+            <image src='http://124.71.81.190:8881/createCode/admin' mode="widthFix" bindtap='handleClickQRcode'></image>
+        </view>
+        <view class='QRCode_patient' wx:if="{{!adminQRCodeImg}}">
             <image src='http://124.71.81.190:8881/createCode/patient' mode="widthFix" bindtap='handleClickQRcode'></image>
         </view>
-        <view class='content_title'>
-            点击保存小程序码
-        </view>
+        <view class='img_btn' bindtap='handleBack'>返回</view>
     </view>
 </view>

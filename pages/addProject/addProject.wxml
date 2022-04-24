@@ -1,12 +1,12 @@
 <view class='number'>
   <view class='number_title'>项目名称</view>
   <view class='number_int'>
-    <input type="text" bindinput="handleProject" placeholder="名称"/>
+    <input type="text" bindinput="handleProject" placeholder="名称" value='{{orderProject}}'/>
   </view>
 </view>
 
 <view class='number'>
-  <view class='number_title'>注射等待时长</view>
+  <view class='number_title'>注射后等待时长</view>
   <view class='number_int'>
     <picker mode="selector" value="{{index}}" range="{{peopleNum}}" bindchange="handlePendWait">
       <view class="picker">
@@ -41,7 +41,7 @@
 <view class='number'>
   <view class='number_title'>备注</view>
   <view class='number_int'>
-    <textarea bindinput="handleNote" placeholder="备注"></textarea>
+    <textarea bindinput="handleNote" placeholder="备注" value='{{note}}'></textarea>
   </view>
 </view>
 

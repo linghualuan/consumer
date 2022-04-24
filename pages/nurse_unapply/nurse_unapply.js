@@ -26,9 +26,7 @@ Page({
         request({url:'/infoCommit/orderDetail',data:{medicalCard,id},header:{'Authorization':'Bearer ' + wx.getStorageSync('token')}})
         .then(
             res => {
-                console.log(res);
                 let a = res.data.data;
-                let age = a.age;
                 let medicalCard = a.medicalCard;
                 let name = a.name;
                 let orderDate = a.orderDate;
@@ -38,16 +36,14 @@ Page({
                 let sex = a.sex;
                 let tel = a.tel;
                 let errorMsg = a.remark;
-                this.setData({ age, medicalCard, errorMsg, name, orderDate, orderProject, orderTime, relId, sex, tel })
+                this.setData({  medicalCard, errorMsg, name, orderDate, orderProject, orderTime, relId, sex, tel })
             }
         )
     },
 
     onLoad(option){
-        console.log(option);
         this.QueryParams.medicalCard = option.medicalCard;
         this.QueryParams.id = option.id;
-
         this.handleShowUserInfo();
     }
 })

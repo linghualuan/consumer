@@ -4,14 +4,17 @@ Page({
         tabs:[
             { id:1, value:"未检查", isActive:true },
             { id:2, value:"检查成功", isActive:false },
-            { id:3, value:"检查失败", isActive:false }
+            { id:3, value:"检查失败", isActive:false },
+            { id:4, value:"取消检查", isActive:false }
         ],
 
         userInfo:[],
 
         userInfoPassed:[],
 
-        userInfoUnpassed:[]
+        userInfoUnpassed:[],
+
+        userInfoFail:[]
     },
 
     handleItemTabChange(e){
@@ -23,8 +26,10 @@ Page({
             this.handleUserInfoUnpassed()
         }else if(index === 1){
             this.handleUserInfoPassed()
-        }else{
+        }else if(index === 2){
             this.handleUserInfo()
+        }else if(index === 3){
+            this.handleUserInfoFail()
         }
     },
 
@@ -79,6 +84,25 @@ Page({
 
             }
         )
+    },
+
+    //获取取消检查患者
+    handleUserInfoFail(){
+        request({url:'/technician/getScanListCancel',method:'get'})
+        .then(
+            res => {
+                console.log(res);
+                let records = res.data.data.records;
+                let userInfoFail = [];
+                for(let i =0;i<records.length;i++){
+                    userInfoFail[i] = records[i]
+                }
+                this.setData({
+                    userInfoFail
+                })
+            }
+        )
+        wx.stopPullDownRefresh();
     },
 
     onShow(){

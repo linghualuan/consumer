@@ -23,11 +23,11 @@
         <view class="title">检查时间</view>
         <view class="inp"><input type="text" value="{{turnTime}}"disabled/></view>
     </view>
-    <view class="col">
+    <view class="col" wx:if='{{finishTime}}'>
         <view class="title">检查完成时间</view>
-        <view class="inp"><input type="text" value="{{turnTime}}"disabled/></view>
+        <view class="inp"><input type="text" value="{{finishTime}}"disabled/></view>
     </view>
-    <view class="col" wx:if="{{errorMsg === '成功' ? false : true}}">
+    <view class="col" wx:if="{{errorMsg ? (errorMsg === '成功' ? false : true) : false}}">
         <view class="title">失败原因</view>
         <view class="inp"><textarea cols="10" rows="10" value='{{errorMsg}}' disabled></textarea></view>
     </view>

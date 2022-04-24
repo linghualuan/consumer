@@ -23,9 +23,13 @@
             <view class='item_date'>检查时间:</view>
             <text>{{turnTime}}</text>
         </view>
-        <view class="top_date">
+        <view class="top_date" wx:if="{{finishTime}}">
             <view class='item_date'>检查完成时间:</view>
-            <text>{{nowTime}}</text>
+            <text>{{finishTime}}</text>
+        </view>
+        <view class="top_date1" wx:if="{{errorMsg !== '成功' && errorMsg}}">
+            <view class='item_date'>检查失败原因:</view>
+            <view class='textError'>{{errorMsg}}</view>
         </view>
     </view>
 </view>

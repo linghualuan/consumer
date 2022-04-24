@@ -173,6 +173,27 @@
                     "pathName": "pages/userInfo_index/userInfo_index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/data_information/data_information",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/addWorker/addWorker",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "000",
+                    "pathName": "pages/order_project/order_project",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

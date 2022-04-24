@@ -25,8 +25,6 @@
             <view class='title'>手机号码</view>
             <view class="inp"><input type="text" name="tel" value="{{tel}}" bindinput="handleTel" placeholder="手机号"/></view>
         </view>
-        <view class="btn" bindtap="handleSubmit">
-            提交
-        </view>
+        <view class="btn" bindtap="handleSubmit">提交</view>
     </view>
 </view>

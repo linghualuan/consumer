@@ -74,47 +74,94 @@ page .showQRcode {
   top: 30vw;
   left: 10vw;
   width: 80vw;
-  height: 70vw;
+  height: 550rpx;
   background-color: white;
   border-radius: 10rpx;
 }
 page .showQRcode .codeHeader {
   height: 10vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 page .showQRcode .codeHeader .code_title {
-  flex: 5;
+  margin-top: 20rpx;
+  font-size: 40rpx;
   text-align: center;
 }
 page .showQRcode .codeHeader .code_error {
-  flex: 1;
-  text-align: center;
+  position: absolute;
+  right: 10rpx;
+  top: 0;
 }
 page .showQRcode .codeHeader .code_error image {
-  width: 50%;
-  height: 50%;
+  width: 50rpx;
+  height: 50rpx;
 }
-page .showQRcode .codeFooter {
-  background-color: #eee;
-  height: 60vw;
+page .showQRcode .selectUser .admin {
+  width: 80%;
+  height: 150rpx;
+  background-color: #3399CC;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10rpx;
+  align-items: center;
+  border-radius: 20rpx;
+  margin: 40rpx auto;
+  font-size: 40rpx;
 }
-page .showQRcode .codeFooter .content_img {
-  flex: 5;
-}
-page .showQRcode .codeFooter .content_img image {
-  display: block;
-  margin: 0 auto;
-  margin-top: 5vw;
-  width: 50%;
-  height: 50%;
-}
-page .showQRcode .codeFooter .content_title {
-  flex: 1;
+page .showQRcode .selectUser .admin .admin_title {
+  flex: 3;
+  color: white;
   text-align: center;
+}
+page .showQRcode .selectUser .admin .admin_img {
+  flex: 1;
+}
+page .showQRcode .selectUser .admin .admin_img image {
+  width: 50%;
+}
+page .showQRcode .selectUser .patient {
+  width: 80%;
+  height: 150rpx;
+  background-color: #99CCCC;
+  display: flex;
+  align-items: center;
+  border-radius: 20rpx;
+  margin: 40rpx auto;
+}
+page .showQRcode .selectUser .patient .patient_title {
+  flex: 3;
+  color: white;
+  text-align: center;
+}
+page .showQRcode .selectUser .patient .patient_img {
+  flex: 1;
+}
+page .showQRcode .selectUser .patient .patient_img image {
+  width: 50%;
+}
+page .showQRcode .QRCode {
+  text-align: center;
+}
+page .showQRcode .QRCode .QRCode_admin {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+}
+page .showQRcode .QRCode .QRCode_admin image {
+  width: 100%;
+}
+page .showQRcode .QRCode .QRCode_patient {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+}
+page .showQRcode .QRCode .QRCode_patient image {
+  width: 100%;
+}
+page .showQRcode .QRCode .img_btn {
+  width: 200rpx;
+  height: 80rpx;
+  background-color: #66CCFF;
+  margin: 30rpx auto;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 20rpx;
 }

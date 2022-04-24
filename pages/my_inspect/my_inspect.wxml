@@ -15,7 +15,9 @@
                     </view>
                 </view>
                 <view class="bottom">
-                    <view class="btm_number">状态:{{item.scanState===1 ? '成功' : '失败'}}</view>
+                    <view class="btm_number">
+                        状态:{{item.scanState===1 ? '成功' : (item.scanState===2 ? '失败' : '已取消')}}
+                    </view>
                     <view class="btm_number">日期:{{item.date}}</view>
                 </view>
             </navigator>

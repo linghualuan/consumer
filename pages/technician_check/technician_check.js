@@ -20,19 +20,20 @@ Page({
         relId:''
     },
 
+    handleCompletedTime(date){
+      return date < 10 ? '0' + date : date
+    },
+
     handleNowTime(){
       wx.showModal({
         title:'是否选择当前时间',
         success:res => {
           if(res.confirm){
             let time = new Date();
-            let year = time.getFullYear();
-            let month = time.getMonth() + 1;
-            let day = time.getDate();
-            let hour = time.getHours();
-            let minute = time.getMinutes();
-            let second = time.getSeconds();
-            let nowTime = `${year}-${month}-${day}  ${hour}:${minute}:${second}`
+            let hour = this.handleCompletedTime(time.getHours());
+            let minute = this.handleCompletedTime(time.getMinutes());
+            let second = this.handleCompletedTime(time.getSeconds());
+            let nowTime = `${hour}:${minute}:${second}`
             this.setData({nowTime})
             console.log(this.data.nowTime);
           }else{
@@ -87,18 +88,21 @@ Page({
     //检查成功
     handleClickSuccess() {
         let medicalCard = this.data.medicalCard;
+        let operatorId = wx.getStorageSync('relId');
         let id = this.QueryParams.id;
         let project = this.data.project;
         let errorMsg = '成功';
         let date = this.data.date;
-        let operatorId = wx.getStorageSync('relId');
         let relId = this.QueryParams.relId;
-        wx.showModal({
+        let finishTime = this.data.nowTime;
+        console.log(finishTime);
+        if(finishTime){
+          wx.showModal({
             title: '提示',
             content: '是否检查成功',
             success (res) {
               if (res.confirm) {
-                request({url:'/technician/updateScanState',data:{relId,id,date,errorMsg,operatorId,medicalCard,project,scanState:1},method:'get'})
+                request({url:'/technician/updateScanState',data:{finishTime,relId,id,date,errorMsg,operatorId,medicalCard,project,scanState:1},method:'get'})
                 .then(
                     res => {
                         console.log(res);
@@ -117,6 +121,12 @@ Page({
               }
             }
           })
+        }else{
+          wx.showToast({
+            title: '请输入检查完成时间',
+            icon:'none'
+          })
+        }
     },
 
     //点击检查失败按钮
@@ -160,7 +170,31 @@ Page({
 
     //呼叫患者
     handleCallUser(){
-      
+      let relId = this.QueryParams.relId;
+      let project = this.data.project;
+      let time = new Date();
+      let year = time.getFullYear();
+      let month = this.handleCompletedTime(time.getMonth() + 1);
+      let day = this.handleCompletedTime(time.getDate());
+      let hour = this.handleCompletedTime(time.getHours());
+      let minute = this.handleCompletedTime(time.getMinutes());
+      let date = `${year}-${month}-${day} ${hour}:${minute}`
+      console.log(relId);
+      console.log(project);
+      console.log(date);
+      request({url:'/technician/call',data:{relId,date,project}})
+      .then(
+        res => {
+          console.log(res);
+          let msg = res.data.msg;
+          if(res.data.code === 1){
+            wx.showToast({
+              title: msg,
+              icon:'none'
+            })
+          }
+        }
+      )
     },
 
     onLoad(option){

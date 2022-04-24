@@ -6,7 +6,28 @@ Page({
         name:'',
         sex:'',
         tel:'',
-        sexSelect:['男','女']
+        sexSelect:['男','女'],
+        isLogin: false
+    },
+
+    //判断数据库是否存有用户信息
+    checkDistance() {
+        request({url:'/login/checkConsumer',data:{token:wx.getStorageSync('token')}})
+        .then(
+            res => {
+                console.log(res);
+                if(res.data.code === 1) {
+                    let isLogin = true
+                    this.setData({isLogin})
+                    wx.setStorageSync('medicalCard', res.data.data.medicalCard)
+                    wx.setStorageSync('name', res.data.data.name)
+                    wx.setStorageSync('relId', res.data.data.relId)
+                    wx.setStorageSync('tel', res.data.data.tel)
+                    wx.setStorageSync('sex', res.data.data.sex)
+                    this.onShow()
+                }
+            }
+        )
     },
 
     handlePendSex(e){
@@ -18,7 +39,6 @@ Page({
             sex = '女'
         }
         this.setData({sex})
-        console.log(this.data.sex);
     },
 
     onShow(){
@@ -31,6 +51,7 @@ Page({
         })
     },
 
+    //提交修改的信息
     handleSubmit(){
         let medicalCard = this.data.medicalCard;
         let name = this.data.name;
@@ -116,15 +137,7 @@ Page({
                 name
             })
         },
-    
-        //获取患者性别
-        handleSex(e){
-            let sex = e.detail.value;
-            this.setData({
-                sex
-            })
-        },
-    
+
         //获取患者电话
         handleTel(e){
             let tel = e.detail.value;
@@ -132,4 +145,24 @@ Page({
                 tel
             })
         },
+
+        //判断本地是否已经有用户信息
+        // handleIsLogin() {
+        //     let isLogin = wx.getStorageSync('isAlreadyLogin')
+        //     this.setData({ isLogin })
+        // },
+
+        //点击登录跳转到登录页面
+        handleLogin() {
+            wx.navigateTo({
+              url: '../userInfo/userInfo',
+            })
+            this.onShow()
+        },
+
+        onLoad() {
+            // this.handleIsLogin()
+
+            this.checkDistance()
+        }
 })

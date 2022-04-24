@@ -16,6 +16,8 @@ page {
 }
 page .wrap {
   padding: 10rpx 5%;
+  width: 100vw;
+  height: 100%;
 }
 page .wrap .title {
   padding: 10rpx 0;
@@ -114,15 +116,64 @@ page .wrap .select .select_time {
   flex: 3;
   height: 50rpx;
 }
+page .wrap .announcement {
+  background-color: white;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+page .wrap .announcement .announcement_note {
+  margin-top: 30rpx;
+}
 page .wrap .submit {
   width: 40vw;
   height: 10vw;
   background-color: #6dbbbc;
-  margin: 200rpx auto;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  margin-bottom: 80rpx;
   text-align: center;
   line-height: 10vw;
   border-radius: 5vw;
 }
 page .wrap .submit text {
   color: white;
+}
+page .message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+}
+page .message .container {
+  position: relative;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  margin-top: 100rpx;
+  width: 80vw;
+  height: 70vh;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+page .message .container .wrap {
+  width: 90%;
+  height: 80%;
+  background-color: blue;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background-color: white;
+}
+page .message .container .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 150rpx;
+  height: 60rpx;
+  background-color: #6dbbbc;
+  border-radius: 30rpx;
+  font-size: 30rpx;
 }

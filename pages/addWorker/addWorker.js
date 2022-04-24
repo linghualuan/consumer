@@ -59,6 +59,12 @@ Page({
         let sex = this.data.sex;
         let tel = this.data.tel;
         let workName = this.data.workName;
+        console.log(jobNum);
+        console.log(name);
+        console.log(password);
+        console.log(sex);
+        console.log(tel);
+        console.log(workName);
         if(!workName){
             let workName = '预约护士'
             this.setData({workName})

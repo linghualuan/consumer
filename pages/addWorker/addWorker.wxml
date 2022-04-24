@@ -8,14 +8,14 @@
 <view class='number'>
     <view class='number_title'>工号</view>
     <view class='number_int'>
-        <input type="text" bindblur="handleJobNum" value='{{jobNum}}'/>
+        <input type="text" bindinput="handleJobNum" value='{{jobNum}}'/>
     </view>
 </view>
 
 <view class='number'>
     <view class='number_title'>姓名</view>
     <view class='number_int'>
-        <input type="text" bindblur="handleName" value='{{name}}'/>
+        <input type="text" bindinput="handleName" value='{{name}}'/>
     </view>
 </view>
 
@@ -27,21 +27,20 @@
                 <view class='input' style='{{sex ? "color:black" : "color:#888"}}'>{{sex}}</view>
             </view>
         </picker>
-        <!-- <input type="text" bindblur="handleSex" value='{{sex}}'/> -->
     </view>
 </view>
 
 <view class='number'>
     <view class='number_title'>手机号</view>
     <view class='number_int'>
-        <input type="text" bindblur="handleTel" value='{{tel}}'/>
+        <input type="text" bindinput="handleTel" value='{{tel}}'/>
     </view>
 </view>
 
 <view class='number'>
     <view class='number_title'>登录密码</view>
     <view class='number_int'>
-        <input type="text" bindblur="handlePwd" value='{{password}}'/>
+        <input type="text" bindinput="handlePwd" value='{{password}}'/>
     </view>
 </view>
 
