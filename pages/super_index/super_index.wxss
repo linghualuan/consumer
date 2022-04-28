@@ -4,9 +4,11 @@ page {
 }
 page .content .content_swiper swiper {
   height: calc(100vw * 380 / 1100);
+  padding: 0 20rpx;
 }
 page .content .content_swiper swiper image {
   width: 100%;
+  border-radius: 10rpx;
 }
 page .content .title {
   width: 90%;
@@ -19,50 +21,62 @@ page .content .title {
   padding-left: 20rpx;
 }
 page .content .content_item {
-  background-color: white;
   width: 92%;
-  flex-wrap: wrap;
-  display: flex;
+  background-color: white;
   margin-right: 4%;
   margin-left: 4%;
-  align-items: center;
+  margin-bottom: 10rpx;
+  padding-top: 20rpx;
+  border-radius: 20rpx;
 }
-page .content .content_item .item {
+page .content .content_item .content_title {
+  text-align: left;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: #aaa;
+}
+page .content .content_item .item_list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+page .content .content_item .item_list .item {
+  flex: 1;
   padding-top: 20rpx;
   width: 25%;
-  font-size: 35rpx;
+  font-size: 30rpx;
   margin-bottom: 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-page .content .content_item .item navigator {
+page .content .content_item .item_list .item navigator {
   height: 100%;
   width: 100%;
   text-align: center;
 }
-page .content .content_item .item navigator image {
-  width: 60%;
+page .content .content_item .item_list .item navigator image {
+  width: 30%;
 }
-page .content .content_item .item navigator .item_title {
+page .content .content_item .item_list .item navigator .item_title {
   text-align: center;
 }
-page .content .content_item .item .QRcode {
+page .content .content_item .item_list .item .QRcode {
   height: 100%;
   width: 100%;
   text-align: center;
 }
-page .content .content_item .item .QRcode image {
-  width: 60%;
+page .content .content_item .item_list .item .QRcode image {
+  width: 30%;
 }
-page .content .content_item .item .QRcode .item_title {
+page .content .content_item .item_list .item .QRcode .item_title {
   text-align: center;
 }
 page .content .content_mag {
   width: 92%;
   background-color: white;
   margin: 0 auto;
-  margin-top: 30rpx;
+  border-radius: 20rpx;
 }
 page .content .content_mag p {
   display: block;

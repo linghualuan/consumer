@@ -1,4 +1,7 @@
 <Tabs tabs="{{tabs}}" binditemTabChange="handleItemTabChange">
+    <view class="title">
+        *注意：等待时间仅作为参考，请不要远离科室。
+    </view>
     <block wx:if="{{tabs[0].isActive}}">
         <view wx:if="{{userInfoInjection.length}}">
             <view class="item" wx:for="{{userInfoInjection}}" wx:key="*this" data-index="index">
@@ -44,7 +47,7 @@
             </view>
             <view class="bottom">
                 <view class="btm_number">排队序号:{{'  '+item.scanNumber}}</view>
-                <view class="btm_number">检查预计时间:{{'  '+item.turnTime}}</view>
+                <view class="btm_number">预计检查时间:{{'  '+item.turnTime}}</view>
                 <view class="btm_number">大约等待时长:{{'  '+item.cutDownTime}}分钟</view>
             </view>
             </navigator>

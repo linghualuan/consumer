@@ -20,7 +20,7 @@ Page({
         this.setData({
             timer:setInterval(() => {
                 this.handleQRCodeImage()
-            },20000)
+            },1000 * 60)
         })
 
     },

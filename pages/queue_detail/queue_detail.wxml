@@ -28,7 +28,7 @@
             <text>{{scanNumber}}</text>
         </view>
         <view class="top_date">
-            <view class='item_title'>检查时间:</view>
+            <view class='item_title'>预计检查时间:</view>
             <text >{{turnTime}}</text>
         </view>
         <view class="btn" bindtap="handleUnorder">

@@ -15,53 +15,75 @@
     <view class="title">
         公告：公告内容暂定。
     </view>
+    <!-- 项目管理 -->
     <view class="content_item">
-        <view class="item">
-            <navigator open-type="navigate" url="../addProject/addProject">
-                <image src="../../img/Super-Admin/add-file.png" mode="widthFix"/>
-                <view class="item_title">添加项目</view>
-            </navigator>
+        <view class="content_title">项目管理</view>
+        <view class="item_list">
+            <view class="item">
+                <navigator open-type="navigate" url="../addProject/addProject">
+                    <image src="../../img/Super-Admin/add-file.png" mode="widthFix"/>
+                    <view class="item_title">添加项目</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator url="../set_order/set_order">
+                    <image src="../../img/Super-Admin/found.png" mode="widthFix"/>
+                    <view class="item_title">创建预约</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator open-type="navigate" url="../my_project/my_project">
+                    <image src="../../img/Super-Admin/applicationManagement.png" mode="widthFix"/>
+                    <view class="item_title">我的管理</view>
+                </navigator>
+            </view>
         </view>
-        <view class="item">
-            <navigator url="../set_order/set_order">
-                <image src="../../img/Super-Admin/found.png" mode="widthFix"/>
-                <view class="item_title">创建预约</view>
-            </navigator>
+    </view>
+    <!-- 人员管理 -->
+    <view class="content_item">
+        <view class="content_title">人员管理</view>
+        <view class="item_list">
+            <view class="item">
+                <navigator open-type="navigate" url="../addWorker/addWorker">
+                    <image src="../../img/Super-Admin/addPerson.png" mode="widthFix"/>
+                    <view class="item_title">创建管理</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator url="../user_info/user_info">
+                    <image src="../../img/Super-Admin/information.png" mode="widthFix"/>
+                    <view class="item_title">用户信息</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator open-type="navigate" url="../blacklist/blacklist">
+                    <image src="../../img/Super-Admin/unlocking.png" mode="widthFix"/>
+                    <view class="item_title">解除拉黑</view>
+                </navigator>
+            </view>
         </view>
-        <view class="item">
-            <navigator open-type="navigate" url="../my_project/my_project">
-                <image src="../../img/Super-Admin/applicationManagement.png" mode="widthFix"/>
-                <view class="item_title">我的管理</view>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator open-type="navigate" url="../addWorker/addWorker">
-                <image src="../../img/Super-Admin/addPerson.png" mode="widthFix"/>
-                <view class="item_title">创建管理</view>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="../user_info/user_info">
-                <image src="../../img/Super-Admin/information.png" mode="widthFix"/>
-                <view class="item_title">用户信息</view>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator open-type="navigate" url="../blacklist/blacklist">
-                <image src="../../img/Super-Admin/unlocking.png" mode="widthFix"/>
-                <view class="item_title">解除拉黑</view>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator open-type="navigate" url="../data_information/data_information">
-                <image src="../../img/Super-Admin/dataExport.png" mode="widthFix"/>
-                <view class="item_title">数据导出</view>
-            </navigator>
-        </view>
-        <view class="item">
-            <view class='QRcode' bindtap='handleShowQRcode'>
-                <image src="../../img/Super-Admin/barcode.png" mode="widthFix"/>
-                <view class="item_title">小程序码</view>
+    </view>
+    <!-- 其他 -->
+    <view class="content_item">
+        <view class="content_title">其他</view>
+        <view class="item_list">
+            <view class="item">
+                <navigator open-type="navigate" url="../data_information/data_information">
+                    <image src="../../img/Super-Admin/dataExport.png" mode="widthFix"/>
+                    <view class="item_title">数据导出</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <navigator open-type="navigate" url="../super_edit/super_edit">
+                    <image src="../../img/Super-Admin/edit.png" mode="widthFix"/>
+                    <view class="item_title">编辑</view>
+                </navigator>
+            </view>
+            <view class="item">
+                <view class='QRcode' bindtap='handleShowQRcode'>
+                    <image src="../../img/Super-Admin/barcode.png" mode="widthFix"/>
+                    <view class="item_title">小程序码</view>
+                </view>
             </view>
         </view>
     </view>
@@ -74,7 +96,7 @@
     </view>
 </view>
 
-
+<!-- 程序码弹出框 -->
 <view wx:if="{{showQRcode}}" class='showQRcode'>
     <view class='codeHeader'>
         <view class='code_title'>{{selectListUser ? '生成小程序码' : adminQRCodeImg ? '管理端程序码' : '患者端程序码'}}</view>

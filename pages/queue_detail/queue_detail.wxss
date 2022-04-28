@@ -1,10 +1,9 @@
 page {
   background-color: #6DBBB4;
-  height: 100vh;
+  padding: 30rpx;
 }
 page .content {
   position: relative;
-  margin: 30rpx;
 }
 page .content .left_div {
   width: 60rpx;
@@ -42,7 +41,19 @@ page .content .title .title_name {
   flex: 13;
   color: white;
 }
+page .content .title1 {
+  width: 94%;
+  height: 50rpx;
+  margin: 20rpx auto;
+  font-size: 32rpx;
+  line-height: 50rpx;
+  border: 4rpx solid red;
+  color: red;
+  border-radius: 25rpx;
+  text-align: center;
+}
 page .content .con_top {
+  height: 600rpx;
   background-color: white;
   border-bottom: #6dbbbc 5rpx solid;
   font-size: 35rpx;

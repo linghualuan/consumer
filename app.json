@@ -41,7 +41,8 @@
         "pages/queue_detail_injection/queue_detail_injection",
         "pages/my_inspect/my_inspect",
         "pages/inspect_detail/inspect_detail",
-        "pages/my_inspect_detail/my_inspect_detail"
+        "pages/my_inspect_detail/my_inspect_detail",
+        "pages/super_edit/super_edit"
     ],
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",
